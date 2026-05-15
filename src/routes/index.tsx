@@ -181,7 +181,7 @@ function Hero() {
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-strong glow-teal">
             <img
               src={heroPortrait}
-              alt="Portrait of Antonio Ortiz"
+              alt="Retrato de Antonio Ortiz"
               width={1024}
               height={1280}
               className="h-full w-full object-cover"
@@ -190,9 +190,9 @@ function Hero() {
             <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center justify-between">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Currently
+                  Actualmente
                 </p>
-                <p className="text-sm">Crafting brand systems</p>
+                <p className="text-sm">Diseñando sistemas de marca</p>
               </div>
               <Sparkles className="h-5 w-5 text-primary" />
             </div>
