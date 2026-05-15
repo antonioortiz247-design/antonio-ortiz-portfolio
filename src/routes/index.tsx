@@ -22,7 +22,7 @@ import { Particles } from "@/components/portfolio/Particles";
 import { SectionLabel } from "@/components/portfolio/SectionLabel";
 
 import heroPortrait from "@/assets/hero-portrait.jpg";
-import projectGobree from "@/assets/project-gobree.webp";
+import projectGobree from "@/assets/project-gobree.jpg";
 import projectImcufide from "@/assets/project-imcufide.webp";
 import projectCreative from "@/assets/project-creative.jpg";
 import ambientBg from "@/assets/ambient-bg.jpg";
