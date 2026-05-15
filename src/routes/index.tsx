@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -278,6 +278,7 @@ function About() {
 const projects = [
   {
     n: "01",
+    slug: "gobreebelt",
     title: "GobreeBelt",
     tag: "Branding Industrial",
     image: projectGobree,
@@ -288,6 +289,7 @@ const projects = [
   },
   {
     n: "02",
+    slug: "imcufide",
     title: "IMCUFIDE Ecatepec",
     tag: "Comunicación Institucional",
     image: projectImcufide,
@@ -298,6 +300,7 @@ const projects = [
   },
   {
     n: "03",
+    slug: "creative-concepts",
     title: "Creative Concepts",
     tag: "Exploraciones Visuales · IA",
     image: projectCreative,
@@ -387,10 +390,14 @@ function Work() {
                     ))}
                   </ul>
                 </div>
-                <button className="inline-flex items-center gap-2 self-start text-sm text-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: p.slug }}
+                  className="inline-flex items-center gap-2 self-start text-sm text-foreground hover:text-primary transition-colors"
+                >
                   Caso de estudio
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </button>
+                </Link>
               </div>
             </motion.article>
           ))}

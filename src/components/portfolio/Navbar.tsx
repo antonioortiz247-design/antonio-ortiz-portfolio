@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "Sobre mí" },
-  { href: "#work", label: "Proyectos" },
-  { href: "#services", label: "Servicios" },
-  { href: "#stack", label: "Stack" },
-  { href: "#experience", label: "Experiencia" },
-  { href: "#contact", label: "Contacto" },
+  { href: "/#about", label: "Sobre mí" },
+  { href: "/#work", label: "Proyectos" },
+  { href: "/#services", label: "Servicios" },
+  { href: "/#stack", label: "Stack" },
+  { href: "/#experience", label: "Experiencia" },
+  { href: "/#contact", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -36,7 +36,7 @@ export function Navbar() {
             scrolled ? "shadow-[0_8px_40px_-10px_rgba(0,0,0,0.6)]" : ""
           }`}
         >
-          <a href="#top" className="flex items-center gap-2 group">
+          <a href="/#top" className="flex items-center gap-2 group">
             <span className="h-2 w-2 rounded-full bg-primary glow-amber group-hover:scale-125 transition-transform" />
             <span className="font-display text-lg tracking-tight text-foreground">
               Antonio Ortiz
@@ -55,7 +55,7 @@ export function Navbar() {
             ))}
           </ul>
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground/95 text-background px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
           >
             Hablemos
