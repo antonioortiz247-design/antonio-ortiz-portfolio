@@ -282,29 +282,32 @@ const projects = [
   {
     n: "01",
     title: "GobreeBelt",
-    tag: "Industrial Branding",
+    tag: "Branding Industrial",
     image: projectGobree,
+    href: "https://gobreebelt.com",
     summary:
-      "Industrial brand system, sales infrastructure and B2B digital presence for a heavy-duty conveyor manufacturer.",
-    chips: ["Identity", "B2B Strategy", "Sales System", "Digital Presence"],
+      "Sistema de marca industrial, infraestructura comercial y presencia digital B2B para un fabricante de bandas transportadoras de uso pesado.",
+    chips: ["Identidad", "Estrategia B2B", "Sistema Comercial", "Presencia Digital"],
   },
   {
     n: "02",
     title: "IMCUFIDE Ecatepec",
-    tag: "Institutional Communication",
+    tag: "Comunicación Institucional",
     image: projectImcufide,
+    href: null,
     summary:
-      "Public communication and event promotion for a municipal sports & culture institute — campaigns, content and visual identity.",
-    chips: ["Public Sector", "Event Promotion", "Visual Content", "Campaigns"],
+      "Comunicación pública y promoción de eventos para un instituto municipal de deporte y cultura — campañas, contenido e identidad visual.",
+    chips: ["Sector Público", "Eventos", "Contenido Visual", "Campañas"],
   },
   {
     n: "03",
     title: "Creative Concepts",
-    tag: "Art Direction · AI",
+    tag: "Dirección de Arte · IA",
     image: projectCreative,
+    href: null,
     summary:
-      "Conceptual branding, posters, social visuals and experimental AI-generated artwork — a sandbox for cinematic ideas.",
-    chips: ["Posters", "Social", "AI Art", "Experimental"],
+      "Branding conceptual, carteles, visuales sociales y arte experimental generado con IA — un laboratorio para ideas cinematográficas.",
+    chips: ["Carteles", "Social", "Arte IA", "Experimental"],
   },
 ];
 
