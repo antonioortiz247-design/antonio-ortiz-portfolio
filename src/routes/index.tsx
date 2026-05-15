@@ -208,7 +208,7 @@ function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex flex-col items-center gap-2"
       >
-        Scroll
+        Desliza
         <span className="h-10 w-px bg-gradient-to-b from-primary/60 to-transparent" />
       </motion.div>
     </section>
