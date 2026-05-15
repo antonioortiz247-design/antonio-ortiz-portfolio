@@ -596,7 +596,7 @@ function Experience() {
 /* ---------------- CONTACT ---------------- */
 const contacts = [
   { icon: Linkedin, label: "LinkedIn", value: "antonio-ortiz", href: "https://linkedin.com" },
-  { icon: Mail, label: "Email", value: "antonio@ortiz.studio", href: "mailto:antonio@ortiz.studio" },
+  { icon: Mail, label: "Correo", value: "antonio@ortiz.studio", href: "mailto:antonio@ortiz.studio" },
   { icon: MessageCircle, label: "WhatsApp", value: "+52 55 0000 0000", href: "https://wa.me/5215500000000" },
   { icon: Instagram, label: "Instagram", value: "@antonio.ortiz", href: "https://instagram.com" },
 ];
