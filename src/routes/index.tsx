@@ -426,9 +426,9 @@ function Services() {
           variants={fadeUp}
           className="max-w-2xl space-y-4"
         >
-          <SectionLabel index="03">Services</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Eight disciplines, one creative voice.
+          <SectionLabel index="03">Servicios</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Ocho disciplinas, una sola voz creativa.
           </h2>
         </motion.div>
 
