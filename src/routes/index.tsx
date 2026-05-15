@@ -521,28 +521,28 @@ function Stack() {
 const experience = [
   {
     role: "Freelancer · Marketing Digital & Branding",
-    period: "2022 — Present",
-    desc: "Brand systems, campaigns and AI-assisted creative direction for industrial and consumer clients.",
+    period: "2022 — Presente",
+    desc: "Sistemas de marca, campañas y dirección creativa con IA para clientes industriales y de consumo.",
   },
   {
     role: "IMCUFIDE Ecatepec",
-    period: "Public Sector",
-    desc: "Institutional communication, sports and cultural event promotion, visual content production.",
+    period: "Sector Público",
+    desc: "Comunicación institucional, promoción de eventos deportivos y culturales, producción de contenido visual.",
   },
   {
     role: "Zunzunta.com",
     period: "Digital",
-    desc: "Digital communication, content production and editorial design.",
+    desc: "Comunicación digital, producción de contenido y diseño editorial.",
   },
   {
     role: "Vienes Money's",
-    period: "Brand & Promo",
-    desc: "Promotional campaigns, branding support and on-the-ground activations.",
+    period: "Marca & Promoción",
+    desc: "Campañas promocionales, soporte de branding y activaciones en piso.",
   },
   {
-    role: "Advertising Activations",
+    role: "Activaciones Publicitarias",
     period: "BTL",
-    desc: "Field activation strategy, experiential touchpoints and event-based marketing.",
+    desc: "Estrategia de activación, touchpoints experienciales y marketing de eventos.",
   },
 ];
 
