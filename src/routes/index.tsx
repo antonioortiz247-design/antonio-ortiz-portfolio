@@ -237,9 +237,9 @@ function About() {
           variants={fadeUp}
           className="lg:col-span-4 space-y-6"
         >
-          <SectionLabel index="01">About</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Strategy meets cinematic craft.
+          <SectionLabel index="01">Sobre mí</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Estrategia con oficio cinematográfico.
           </h2>
         </motion.div>
         <motion.div
@@ -250,16 +250,16 @@ function About() {
           className="lg:col-span-8 space-y-8"
         >
           <p className="text-lg sm:text-xl text-foreground/90 leading-relaxed">
-            I build brand worlds that feel inevitable — pairing rigorous strategy with
-            an art-direction-first sensibility. From industrial identities to
-            institutional campaigns, my work blends classical communication craft
-            with modern, AI-assisted creative workflows that move faster without
-            losing taste.
+            Construyo mundos de marca que se sienten inevitables — combinando estrategia
+            rigurosa con una sensibilidad de dirección de arte. Desde identidades
+            industriales hasta campañas institucionales, mi trabajo une el oficio
+            clásico de la comunicación con flujos creativos modernos asistidos por IA
+            que se mueven más rápido sin perder el gusto.
           </p>
           <p className="text-muted-foreground leading-relaxed max-w-2xl">
-            I work across branding, performance marketing, content systems and
-            visual production — translating positioning into pixels, copy, motion
-            and the spaces in between.
+            Trabajo en branding, performance marketing, sistemas de contenido y
+            producción visual — traduciendo posicionamiento en pixeles, copy, motion
+            y los espacios intermedios.
           </p>
           <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
             {pillars.map((p) => (
