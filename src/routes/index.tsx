@@ -557,12 +557,12 @@ function Experience() {
           variants={fadeUp}
           className="lg:col-span-4 space-y-4 lg:sticky lg:top-32 self-start"
         >
-          <SectionLabel index="05">Experience</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            A trail of brands and campaigns.
+          <SectionLabel index="05">Experiencia</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Un recorrido entre marcas y campañas.
           </h2>
           <p className="text-muted-foreground text-sm max-w-sm">
-            Independent practice, institutional collaborations and on-the-ground brand work.
+            Práctica independiente, colaboraciones institucionales y trabajo de marca en piso.
           </p>
         </motion.div>
 
