@@ -120,9 +120,9 @@ function Hero() {
             variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.15, ease } } }}
             className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Publicista · Marketing Digital · Branding & Creative Content. Building brands,
-            visuals and digital experiences through strategy, creativity and AI-assisted
-            workflows.
+            Publicista · Marketing Digital · Branding & Creative Content. Construyo marcas,
+            visuales y experiencias digitales con estrategia, creatividad y flujos
+            asistidos por IA.
           </motion.p>
 
           <motion.div
