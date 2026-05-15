@@ -135,20 +135,20 @@ function Hero() {
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
             >
-              View Projects
+              Ver Proyectos
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="/cv-antonio-ortiz.pdf"
               className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
             >
-              <Download className="h-4 w-4" /> Download CV
+              <Download className="h-4 w-4" /> Descargar CV
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Mail className="h-4 w-4" /> Contact
+              <Mail className="h-4 w-4" /> Contacto
             </a>
           </motion.div>
 
