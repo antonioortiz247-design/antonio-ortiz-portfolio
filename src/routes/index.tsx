@@ -6,7 +6,6 @@ import {
   Download,
   Mail,
   Linkedin,
-  Instagram,
   MessageCircle,
   Sparkles,
   Palette,
@@ -535,7 +534,7 @@ const experience = [
     desc: "Comunicación digital, producción de contenido y diseño editorial.",
   },
   {
-    role: "Vienes Money's",
+    role: "Viajes Mony's",
     period: "Marca & Promoción",
     desc: "Campañas promocionales, soporte de branding y activaciones en piso.",
   },
@@ -595,10 +594,31 @@ function Experience() {
 
 /* ---------------- CONTACT ---------------- */
 const contacts = [
-  { icon: Linkedin, label: "LinkedIn", value: "antonio-ortiz", href: "https://linkedin.com" },
-  { icon: Mail, label: "Correo", value: "antonio@ortiz.studio", href: "mailto:antonio@ortiz.studio" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+52 55 0000 0000", href: "https://wa.me/5215500000000" },
-  { icon: Instagram, label: "Instagram", value: "@antonio.ortiz", href: "https://instagram.com" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "antonio-ortiz-ramirez",
+    href: "https://www.linkedin.com/in/antonio-ortiz-ramirez-ba9045153",
+  },
+  {
+    icon: Mail,
+    label: "Correo",
+    value: "Antonioortiz247@gmail.com",
+    href: "mailto:Antonioortiz247@gmail.com",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+52 56 1145 1113",
+    href: "https://wa.me/525611451113",
+  },
+  {
+    icon: Download,
+    label: "CV",
+    value: "Descargar CV",
+    href: "/cv-antonio-ortiz.pdf",
+    download: true,
+  },
 ];
 
 function Contact() {
@@ -633,8 +653,9 @@ function Contact() {
               <a
                 key={c.label}
                 href={c.href}
-                target="_blank"
-                rel="noreferrer"
+                download={c.download ? "" : undefined}
+                target={c.download ? undefined : "_blank"}
+                rel={c.download ? undefined : "noreferrer"}
                 className="group glass rounded-2xl p-5 flex items-center gap-4 hover:border-primary/40 transition-colors"
               >
                 <span className="h-10 w-10 rounded-xl bg-primary/10 text-primary grid place-items-center">
