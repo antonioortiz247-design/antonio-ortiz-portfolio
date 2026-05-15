@@ -98,7 +98,7 @@ function Hero() {
           <motion.div initial="hidden" animate="show" variants={fadeUp}>
             <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
-              Available for select collaborations · CDMX
+              Disponible para colaboraciones · CDMX
             </div>
           </motion.div>
 
@@ -106,11 +106,11 @@ function Hero() {
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            className="font-display text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-tight text-gradient-cinematic"
+            className="font-display font-light text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-tight text-gradient-cinematic"
           >
             Antonio
             <br />
-            <span className="italic text-primary/90">Ortiz</span>
+            <span className="text-primary/90">Ortiz</span>
             <span className="text-muted-foreground">.</span>
           </motion.h1>
 
