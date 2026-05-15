@@ -482,12 +482,12 @@ function Stack() {
         >
           <div className="space-y-4 max-w-xl">
             <SectionLabel index="04">Stack</SectionLabel>
-            <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-              Tools, sharpened daily.
+            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+              Herramientas, afiladas a diario.
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            A curated toolkit spanning design, AI, performance marketing and post-production.
+            Un toolkit curado entre diseño, IA, performance marketing y post-producción.
           </p>
         </motion.div>
 
