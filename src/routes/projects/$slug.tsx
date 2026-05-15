@@ -11,7 +11,7 @@ import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-pro
 import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.svg";
 import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.svg";
 import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
-import imcufideProcess from "@/assets/case-studies/imcufide-process.svg";
+import imcufideProcess from "@/assets/case-studies/imcufide-process.jpg";
 import projectCreative from "@/assets/project-creative.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
 import projectImcufide from "@/assets/project-imcufide.jpg";
