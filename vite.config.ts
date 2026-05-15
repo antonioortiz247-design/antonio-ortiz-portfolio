@@ -7,6 +7,15 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { copyFileSync, existsSync } from "node:fs";
 import path from "node:path";
 
+const stdin = process.stdin as unknown as {
+  off?: (event: string | symbol, listener: (...args: unknown[]) => void) => void;
+  removeListener?: (event: string | symbol, listener: (...args: unknown[]) => void) => void;
+};
+
+if (typeof stdin.off !== "function" && typeof stdin.removeListener === "function") {
+  stdin.off = stdin.removeListener.bind(process.stdin);
+}
+
 function ensureTanStackPrerenderServerEntry() {
   return {
     name: "ensure-tanstack-prerender-server-entry",
