@@ -4,10 +4,29 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { copyFileSync, existsSync } from "node:fs";
+import path from "node:path";
+
+function ensureTanStackPrerenderServerEntry() {
+  return {
+    name: "ensure-tanstack-prerender-server-entry",
+    enforce: "pre",
+    closeBundle() {
+      const src = path.join(process.cwd(), "dist", "server", "index.js");
+      const dst = path.join(process.cwd(), "dist", "server", "server.js");
+      if (existsSync(src) && !existsSync(dst)) {
+        copyFileSync(src, dst);
+      }
+    },
+  };
+}
 
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  vite: {
+    plugins: [ensureTanStackPrerenderServerEntry()],
+  },
   tanstackStart: {
     server: { entry: "server" },
     prerender: {
