@@ -219,13 +219,13 @@ function Hero() {
 function About() {
   const pillars = [
     "Branding",
-    "Digital Marketing",
-    "Content Creation",
-    "Visual Communication",
-    "AI-Assisted Workflows",
-    "Campaign Development",
-    "Multimedia Production",
-    "Communication Strategy",
+    "Marketing Digital",
+    "Creación de Contenido",
+    "Comunicación Visual",
+    "Flujos con IA",
+    "Desarrollo de Campañas",
+    "Producción Multimedia",
+    "Estrategia de Comunicación",
   ];
   return (
     <section id="about" className="relative py-32 px-6">
