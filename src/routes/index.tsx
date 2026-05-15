@@ -159,9 +159,9 @@ function Hero() {
             className="grid grid-cols-3 gap-6 pt-6 max-w-md"
           >
             {[
-              { k: "5+", v: "Years" },
-              { k: "40+", v: "Projects" },
-              { k: "12+", v: "Brands" },
+              { k: "5+", v: "Años" },
+              { k: "40+", v: "Proyectos" },
+              { k: "12+", v: "Marcas" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl text-foreground">{s.k}</dt>
