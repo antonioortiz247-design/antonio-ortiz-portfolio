@@ -323,13 +323,13 @@ function Work() {
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6"
         >
           <div className="space-y-4">
-            <SectionLabel index="02">Featured Work</SectionLabel>
-            <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic max-w-xl">
-              Selected projects, shaped by intent.
+            <SectionLabel index="02">Proyectos Destacados</SectionLabel>
+            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic max-w-xl">
+              Proyectos seleccionados, con intención.
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            A short reel of recent collaborations across industrial, institutional and creative fields.
+            Una breve muestra de colaboraciones recientes en los campos industrial, institucional y creativo.
           </p>
         </motion.div>
 
