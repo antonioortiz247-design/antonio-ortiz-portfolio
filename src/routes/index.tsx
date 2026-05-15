@@ -367,6 +367,17 @@ function Work() {
                   <h3 className="font-display text-3xl sm:text-4xl text-foreground">
                     {p.title}
                   </h3>
+                  {p.href && (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-primary hover:text-foreground transition-colors"
+                    >
+                      gobreebelt.com
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
                   <p className="text-muted-foreground leading-relaxed">{p.summary}</p>
                   <ul className="flex flex-wrap gap-2 pt-2">
                     {p.chips.map((c) => (
@@ -380,7 +391,7 @@ function Work() {
                   </ul>
                 </div>
                 <button className="inline-flex items-center gap-2 self-start text-sm text-foreground hover:text-primary transition-colors">
-                  Case study
+                  Caso de estudio
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
               </div>
