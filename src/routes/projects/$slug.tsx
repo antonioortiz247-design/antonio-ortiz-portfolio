@@ -5,6 +5,12 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/portfolio/Navbar";
 
 import ambientBg from "@/assets/ambient-bg.jpg";
+import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.svg";
+import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.svg";
+import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.svg";
+import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.svg";
+import imcufideContext from "@/assets/case-studies/imcufide-context.svg";
+import imcufideProcess from "@/assets/case-studies/imcufide-process.svg";
 import projectCreative from "@/assets/project-creative.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
 import projectImcufide from "@/assets/project-imcufide.jpg";
@@ -41,8 +47,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Participación en presencia digital, estructura visual y comunicación para ventas: materiales digitales y una presentación más clara para un contexto industrial.",
     heroImage: projectGobree,
-    image01: projectGobree,
-    image02: ambientBg,
+    image01: gobreebeltContext,
+    image02: gobreebeltProcess,
     context:
       "GobreeBelt necesitaba una presencia digital más clara y profesional para comunicar soluciones industriales relacionadas con bandas transportadoras y productos especializados. El reto era organizar información técnica y comercial sin perder claridad, y mantener una estética sólida y confiable para audiencias B2B.",
     objectives: [
@@ -92,8 +98,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Materiales visuales y contenido digital para difusión de eventos deportivos y culturales, manteniendo claridad institucional y consistencia en comunicación.",
     heroImage: projectImcufide,
-    image01: projectImcufide,
-    image02: ambientBg,
+    image01: imcufideContext,
+    image02: imcufideProcess,
     context:
       "El proyecto requería difusión visual y comunicación institucional para eventos deportivos y culturales organizados por el Instituto Municipal de Cultura Física y Deporte de Ecatepec. El enfoque fue mantener mensajes claros y consistentes, con piezas que funcionaran en redes y materiales de difusión.",
     objectives: [
@@ -134,8 +140,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Exploraciones visuales y proyectos conceptuales: branding experimental, composición y piezas digitales, usando IA como herramienta de apoyo creativo.",
     heroImage: projectCreative,
-    image01: projectCreative,
-    image02: ambientBg,
+    image01: creativeConceptsContext,
+    image02: creativeConceptsProcess,
     context:
       "Serie de exploraciones visuales y proyectos conceptuales enfocados en branding, contenido digital, composición visual y creatividad asistida por IA. La intención es experimentar con estilos, lenguaje gráfico y narrativa visual de forma controlada, sin simular casos comerciales inexistentes.",
     objectives: [
@@ -242,7 +248,7 @@ function CinematicImage({ label, src }: { label: string; src: string }) {
         <div className="absolute bottom-4 left-4 right-4">
           <div className="glass rounded-2xl px-5 py-4">
             <p className="font-display text-xl text-foreground">{label}</p>
-            <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Visual</p>
+            <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Imagen</p>
           </div>
         </div>
         <div className="absolute inset-0 opacity-30 pointer-events-none">
