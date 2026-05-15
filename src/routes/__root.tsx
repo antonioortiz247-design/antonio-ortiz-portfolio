@@ -74,7 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0f" },
       { title: "Antonio Ortiz — Publicista | Marketing Digital | Branding" },
-      { name: "description", content: "Portfolio of Antonio Ortiz — branding, digital marketing, content creation and AI-assisted creative workflows." },
+      { name: "description", content: "Portafolio de Antonio Ortiz — branding, marketing digital, creación de contenido y flujos creativos asistidos por IA." },
       { name: "author", content: "Antonio Ortiz" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Antonio Ortiz" },
