@@ -35,10 +35,10 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Antonio Ortiz — building brands, visuals and digital experiences through strategy, creativity and AI-assisted workflows.",
+          "Portafolio de Antonio Ortiz — construyendo marcas, visuales y experiencias digitales con estrategia, creatividad y flujos asistidos por IA.",
       },
-      { property: "og:title", content: "Antonio Ortiz — Creative Marketing Specialist" },
-      { property: "og:description", content: "Branding, digital marketing & AI-assisted creative direction." },
+      { property: "og:title", content: "Antonio Ortiz — Especialista Creativo en Marketing" },
+      { property: "og:description", content: "Branding, marketing digital y dirección creativa asistida por IA." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
