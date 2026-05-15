@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
+  { href: "#about", label: "Sobre mí" },
+  { href: "#work", label: "Proyectos" },
+  { href: "#services", label: "Servicios" },
   { href: "#stack", label: "Stack" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "#experience", label: "Experiencia" },
+  { href: "#contact", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -58,7 +58,7 @@ export function Navbar() {
             href="#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground/95 text-background px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
           >
-            Let's talk
+            Hablemos
           </a>
           <button
             onClick={() => setOpen(!open)}

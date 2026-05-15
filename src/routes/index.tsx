@@ -35,10 +35,10 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Antonio Ortiz — building brands, visuals and digital experiences through strategy, creativity and AI-assisted workflows.",
+          "Portafolio de Antonio Ortiz — construyendo marcas, visuales y experiencias digitales con estrategia, creatividad y flujos asistidos por IA.",
       },
-      { property: "og:title", content: "Antonio Ortiz — Creative Marketing Specialist" },
-      { property: "og:description", content: "Branding, digital marketing & AI-assisted creative direction." },
+      { property: "og:title", content: "Antonio Ortiz — Especialista Creativo en Marketing" },
+      { property: "og:description", content: "Branding, marketing digital y dirección creativa asistida por IA." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -98,7 +98,7 @@ function Hero() {
           <motion.div initial="hidden" animate="show" variants={fadeUp}>
             <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
-              Available for select collaborations · CDMX
+              Disponible para colaboraciones · CDMX
             </div>
           </motion.div>
 
@@ -106,11 +106,11 @@ function Hero() {
             initial="hidden"
             animate="show"
             variants={fadeUp}
-            className="font-display text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-tight text-gradient-cinematic"
+            className="font-display font-light text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-tight text-gradient-cinematic"
           >
             Antonio
             <br />
-            <span className="italic text-primary/90">Ortiz</span>
+            <span className="text-primary/90">Ortiz</span>
             <span className="text-muted-foreground">.</span>
           </motion.h1>
 
@@ -120,9 +120,9 @@ function Hero() {
             variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.15, ease } } }}
             className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Publicista · Marketing Digital · Branding & Creative Content. Building brands,
-            visuals and digital experiences through strategy, creativity and AI-assisted
-            workflows.
+            Publicista · Marketing Digital · Branding & Creative Content. Construyo marcas,
+            visuales y experiencias digitales con estrategia, creatividad y flujos
+            asistidos por IA.
           </motion.p>
 
           <motion.div
@@ -135,20 +135,20 @@ function Hero() {
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
             >
-              View Projects
+              Ver Proyectos
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="/cv-antonio-ortiz.pdf"
               className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
             >
-              <Download className="h-4 w-4" /> Download CV
+              <Download className="h-4 w-4" /> Descargar CV
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Mail className="h-4 w-4" /> Contact
+              <Mail className="h-4 w-4" /> Contacto
             </a>
           </motion.div>
 
@@ -159,9 +159,9 @@ function Hero() {
             className="grid grid-cols-3 gap-6 pt-6 max-w-md"
           >
             {[
-              { k: "5+", v: "Years" },
-              { k: "40+", v: "Projects" },
-              { k: "12+", v: "Brands" },
+              { k: "5+", v: "Años" },
+              { k: "40+", v: "Proyectos" },
+              { k: "12+", v: "Marcas" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl text-foreground">{s.k}</dt>
@@ -181,7 +181,7 @@ function Hero() {
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-strong glow-teal">
             <img
               src={heroPortrait}
-              alt="Portrait of Antonio Ortiz"
+              alt="Retrato de Antonio Ortiz"
               width={1024}
               height={1280}
               className="h-full w-full object-cover"
@@ -190,9 +190,9 @@ function Hero() {
             <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center justify-between">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Currently
+                  Actualmente
                 </p>
-                <p className="text-sm">Crafting brand systems</p>
+                <p className="text-sm">Diseñando sistemas de marca</p>
               </div>
               <Sparkles className="h-5 w-5 text-primary" />
             </div>
@@ -208,7 +208,7 @@ function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex flex-col items-center gap-2"
       >
-        Scroll
+        Desliza
         <span className="h-10 w-px bg-gradient-to-b from-primary/60 to-transparent" />
       </motion.div>
     </section>
@@ -219,13 +219,13 @@ function Hero() {
 function About() {
   const pillars = [
     "Branding",
-    "Digital Marketing",
-    "Content Creation",
-    "Visual Communication",
-    "AI-Assisted Workflows",
-    "Campaign Development",
-    "Multimedia Production",
-    "Communication Strategy",
+    "Marketing Digital",
+    "Creación de Contenido",
+    "Comunicación Visual",
+    "Flujos con IA",
+    "Desarrollo de Campañas",
+    "Producción Multimedia",
+    "Estrategia de Comunicación",
   ];
   return (
     <section id="about" className="relative py-32 px-6">
@@ -237,9 +237,9 @@ function About() {
           variants={fadeUp}
           className="lg:col-span-4 space-y-6"
         >
-          <SectionLabel index="01">About</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Strategy meets cinematic craft.
+          <SectionLabel index="01">Sobre mí</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Estrategia con oficio cinematográfico.
           </h2>
         </motion.div>
         <motion.div
@@ -250,16 +250,16 @@ function About() {
           className="lg:col-span-8 space-y-8"
         >
           <p className="text-lg sm:text-xl text-foreground/90 leading-relaxed">
-            I build brand worlds that feel inevitable — pairing rigorous strategy with
-            an art-direction-first sensibility. From industrial identities to
-            institutional campaigns, my work blends classical communication craft
-            with modern, AI-assisted creative workflows that move faster without
-            losing taste.
+            Construyo mundos de marca que se sienten inevitables — combinando estrategia
+            rigurosa con una sensibilidad de dirección de arte. Desde identidades
+            industriales hasta campañas institucionales, mi trabajo une el oficio
+            clásico de la comunicación con flujos creativos modernos asistidos por IA
+            que se mueven más rápido sin perder el gusto.
           </p>
           <p className="text-muted-foreground leading-relaxed max-w-2xl">
-            I work across branding, performance marketing, content systems and
-            visual production — translating positioning into pixels, copy, motion
-            and the spaces in between.
+            Trabajo en branding, performance marketing, sistemas de contenido y
+            producción visual — traduciendo posicionamiento en pixeles, copy, motion
+            y los espacios intermedios.
           </p>
           <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
             {pillars.map((p) => (
@@ -282,29 +282,32 @@ const projects = [
   {
     n: "01",
     title: "GobreeBelt",
-    tag: "Industrial Branding",
+    tag: "Branding Industrial",
     image: projectGobree,
+    href: "https://gobreebelt.com",
     summary:
-      "Industrial brand system, sales infrastructure and B2B digital presence for a heavy-duty conveyor manufacturer.",
-    chips: ["Identity", "B2B Strategy", "Sales System", "Digital Presence"],
+      "Sistema de marca industrial, infraestructura comercial y presencia digital B2B para un fabricante de bandas transportadoras de uso pesado.",
+    chips: ["Identidad", "Estrategia B2B", "Sistema Comercial", "Presencia Digital"],
   },
   {
     n: "02",
     title: "IMCUFIDE Ecatepec",
-    tag: "Institutional Communication",
+    tag: "Comunicación Institucional",
     image: projectImcufide,
+    href: null,
     summary:
-      "Public communication and event promotion for a municipal sports & culture institute — campaigns, content and visual identity.",
-    chips: ["Public Sector", "Event Promotion", "Visual Content", "Campaigns"],
+      "Comunicación pública y promoción de eventos para un instituto municipal de deporte y cultura — campañas, contenido e identidad visual.",
+    chips: ["Sector Público", "Eventos", "Contenido Visual", "Campañas"],
   },
   {
     n: "03",
     title: "Creative Concepts",
-    tag: "Art Direction · AI",
+    tag: "Dirección de Arte · IA",
     image: projectCreative,
+    href: null,
     summary:
-      "Conceptual branding, posters, social visuals and experimental AI-generated artwork — a sandbox for cinematic ideas.",
-    chips: ["Posters", "Social", "AI Art", "Experimental"],
+      "Branding conceptual, carteles, visuales sociales y arte experimental generado con IA — un laboratorio para ideas cinematográficas.",
+    chips: ["Carteles", "Social", "Arte IA", "Experimental"],
   },
 ];
 
@@ -320,13 +323,13 @@ function Work() {
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6"
         >
           <div className="space-y-4">
-            <SectionLabel index="02">Featured Work</SectionLabel>
-            <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic max-w-xl">
-              Selected projects, shaped by intent.
+            <SectionLabel index="02">Proyectos Destacados</SectionLabel>
+            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic max-w-xl">
+              Proyectos seleccionados, con intención.
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            A short reel of recent collaborations across industrial, institutional and creative fields.
+            Una breve muestra de colaboraciones recientes en los campos industrial, institucional y creativo.
           </p>
         </motion.div>
 
@@ -364,6 +367,17 @@ function Work() {
                   <h3 className="font-display text-3xl sm:text-4xl text-foreground">
                     {p.title}
                   </h3>
+                  {p.href && (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-primary hover:text-foreground transition-colors"
+                    >
+                      gobreebelt.com
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
                   <p className="text-muted-foreground leading-relaxed">{p.summary}</p>
                   <ul className="flex flex-wrap gap-2 pt-2">
                     {p.chips.map((c) => (
@@ -377,7 +391,7 @@ function Work() {
                   </ul>
                 </div>
                 <button className="inline-flex items-center gap-2 self-start text-sm text-foreground hover:text-primary transition-colors">
-                  Case study
+                  Caso de estudio
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
               </div>
@@ -391,14 +405,14 @@ function Work() {
 
 /* ---------------- SERVICES ---------------- */
 const services = [
-  { icon: Palette, title: "Branding", desc: "Identity systems, naming, brand architecture and guidelines." },
-  { icon: Megaphone, title: "Digital Marketing", desc: "Performance, paid media and full-funnel growth strategy." },
-  { icon: Share2, title: "Social Media", desc: "Editorial direction, content calendars and community design." },
-  { icon: Camera, title: "Content Creation", desc: "Photography, video, copy and multimedia production." },
-  { icon: Brain, title: "AI Creative Workflows", desc: "Prompt systems, AI-assisted ideation and rapid iteration." },
-  { icon: Sparkles, title: "Visual Design", desc: "Posters, decks, key visuals and art direction." },
-  { icon: LayoutTemplate, title: "Landing Pages", desc: "High-converting, story-driven pages built for performance." },
-  { icon: Target, title: "Advertising Campaigns", desc: "Concepting, scripting and launch — from idea to insight." },
+  { icon: Palette, title: "Branding", desc: "Sistemas de identidad, naming, arquitectura de marca y guidelines." },
+  { icon: Megaphone, title: "Marketing Digital", desc: "Performance, medios pagados y estrategia de full-funnel." },
+  { icon: Share2, title: "Social Media", desc: "Dirección editorial, calendarios de contenido y diseño de comunidad." },
+  { icon: Camera, title: "Creación de Contenido", desc: "Fotografía, video, copy y producción multimedia." },
+  { icon: Brain, title: "Flujos Creativos con IA", desc: "Sistemas de prompts, ideación asistida e iteración rápida." },
+  { icon: Sparkles, title: "Diseño Visual", desc: "Carteles, decks, key visuals y dirección de arte." },
+  { icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta conversión, narrativas y orientadas al performance." },
+  { icon: Target, title: "Campañas Publicitarias", desc: "Conceptualización, guion y lanzamiento — de la idea al insight." },
 ];
 
 function Services() {
@@ -412,9 +426,9 @@ function Services() {
           variants={fadeUp}
           className="max-w-2xl space-y-4"
         >
-          <SectionLabel index="03">Services</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Eight disciplines, one creative voice.
+          <SectionLabel index="03">Servicios</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Ocho disciplinas, una sola voz creativa.
           </h2>
         </motion.div>
 
@@ -468,12 +482,12 @@ function Stack() {
         >
           <div className="space-y-4 max-w-xl">
             <SectionLabel index="04">Stack</SectionLabel>
-            <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-              Tools, sharpened daily.
+            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+              Herramientas, afiladas a diario.
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            A curated toolkit spanning design, AI, performance marketing and post-production.
+            Un toolkit curado entre diseño, IA, performance marketing y post-producción.
           </p>
         </motion.div>
 
@@ -507,28 +521,28 @@ function Stack() {
 const experience = [
   {
     role: "Freelancer · Marketing Digital & Branding",
-    period: "2022 — Present",
-    desc: "Brand systems, campaigns and AI-assisted creative direction for industrial and consumer clients.",
+    period: "2022 — Presente",
+    desc: "Sistemas de marca, campañas y dirección creativa con IA para clientes industriales y de consumo.",
   },
   {
     role: "IMCUFIDE Ecatepec",
-    period: "Public Sector",
-    desc: "Institutional communication, sports and cultural event promotion, visual content production.",
+    period: "Sector Público",
+    desc: "Comunicación institucional, promoción de eventos deportivos y culturales, producción de contenido visual.",
   },
   {
     role: "Zunzunta.com",
     period: "Digital",
-    desc: "Digital communication, content production and editorial design.",
+    desc: "Comunicación digital, producción de contenido y diseño editorial.",
   },
   {
     role: "Vienes Money's",
-    period: "Brand & Promo",
-    desc: "Promotional campaigns, branding support and on-the-ground activations.",
+    period: "Marca & Promoción",
+    desc: "Campañas promocionales, soporte de branding y activaciones en piso.",
   },
   {
-    role: "Advertising Activations",
+    role: "Activaciones Publicitarias",
     period: "BTL",
-    desc: "Field activation strategy, experiential touchpoints and event-based marketing.",
+    desc: "Estrategia de activación, touchpoints experienciales y marketing de eventos.",
   },
 ];
 
@@ -543,12 +557,12 @@ function Experience() {
           variants={fadeUp}
           className="lg:col-span-4 space-y-4 lg:sticky lg:top-32 self-start"
         >
-          <SectionLabel index="05">Experience</SectionLabel>
-          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            A trail of brands and campaigns.
+          <SectionLabel index="05">Experiencia</SectionLabel>
+          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
+            Un recorrido entre marcas y campañas.
           </h2>
           <p className="text-muted-foreground text-sm max-w-sm">
-            Independent practice, institutional collaborations and on-the-ground brand work.
+            Práctica independiente, colaboraciones institucionales y trabajo de marca en piso.
           </p>
         </motion.div>
 
@@ -582,7 +596,7 @@ function Experience() {
 /* ---------------- CONTACT ---------------- */
 const contacts = [
   { icon: Linkedin, label: "LinkedIn", value: "antonio-ortiz", href: "https://linkedin.com" },
-  { icon: Mail, label: "Email", value: "antonio@ortiz.studio", href: "mailto:antonio@ortiz.studio" },
+  { icon: Mail, label: "Correo", value: "antonio@ortiz.studio", href: "mailto:antonio@ortiz.studio" },
   { icon: MessageCircle, label: "WhatsApp", value: "+52 55 0000 0000", href: "https://wa.me/5215500000000" },
   { icon: Instagram, label: "Instagram", value: "@antonio.ortiz", href: "https://instagram.com" },
 ];
@@ -602,16 +616,16 @@ function Contact() {
           <div className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-accent/20 blur-[120px]" />
 
           <SectionLabel index="06">
-            <span className="mx-auto">Contact</span>
+            <span className="mx-auto">Contacto</span>
           </SectionLabel>
-          <h2 className="mt-6 font-display text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
-            Let's build something
+          <h2 className="mt-6 font-display font-light text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
+            Construyamos algo
             <br />
-            <span className="italic text-primary/90">unforgettable</span>.
+            <span className="text-primary/90">inolvidable</span>.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            Available for branding engagements, creative direction and advisory roles.
-            Reach out — I'd love to hear about the project.
+            Disponible para proyectos de branding, dirección creativa y consultoría.
+            Escríbeme — me encantaría conocer tu proyecto.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
@@ -647,8 +661,8 @@ function Footer() {
   return (
     <footer className="relative px-6 py-10 border-t border-border/60">
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <p className="font-mono">© {new Date().getFullYear()} Antonio Ortiz. All rights reserved.</p>
-        <p className="font-mono uppercase tracking-widest">Crafted in CDMX</p>
+        <p className="font-mono">© {new Date().getFullYear()} Antonio Ortiz. Todos los derechos reservados.</p>
+        <p className="font-mono uppercase tracking-widest">Hecho en CDMX</p>
       </div>
     </footer>
   );
