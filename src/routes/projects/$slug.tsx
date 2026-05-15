@@ -14,6 +14,8 @@ type CaseStudy = {
   category: string;
   description: string;
   heroImage: string;
+  image01: string;
+  image02: string;
   context: string;
   objectives: string[];
   participation: {
@@ -39,6 +41,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Participación en presencia digital, estructura visual y comunicación para ventas: materiales digitales y una presentación más clara para un contexto industrial.",
     heroImage: projectGobree,
+    image01: projectGobree,
+    image02: ambientBg,
     context:
       "GobreeBelt necesitaba una presencia digital más clara y profesional para comunicar soluciones industriales relacionadas con bandas transportadoras y productos especializados. El reto era organizar información técnica y comercial sin perder claridad, y mantener una estética sólida y confiable para audiencias B2B.",
     objectives: [
@@ -88,6 +92,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Materiales visuales y contenido digital para difusión de eventos deportivos y culturales, manteniendo claridad institucional y consistencia en comunicación.",
     heroImage: projectImcufide,
+    image01: projectImcufide,
+    image02: ambientBg,
     context:
       "El proyecto requería difusión visual y comunicación institucional para eventos deportivos y culturales organizados por el Instituto Municipal de Cultura Física y Deporte de Ecatepec. El enfoque fue mantener mensajes claros y consistentes, con piezas que funcionaran en redes y materiales de difusión.",
     objectives: [
@@ -128,6 +134,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Exploraciones visuales y proyectos conceptuales: branding experimental, composición y piezas digitales, usando IA como herramienta de apoyo creativo.",
     heroImage: projectCreative,
+    image01: projectCreative,
+    image02: ambientBg,
     context:
       "Serie de exploraciones visuales y proyectos conceptuales enfocados en branding, contenido digital, composición visual y creatividad asistida por IA. La intención es experimentar con estilos, lenguaje gráfico y narrativa visual de forma controlada, sin simular casos comerciales inexistentes.",
     objectives: [
@@ -221,7 +229,7 @@ function Section({
   );
 }
 
-function ImagePlaceholder({ label }: { label: string }) {
+function CinematicImage({ label, src }: { label: string; src: string }) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -229,11 +237,12 @@ function ImagePlaceholder({ label }: { label: string }) {
       className="glass-strong rounded-3xl overflow-hidden"
     >
       <div className="relative aspect-[16/10]">
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-background/30 to-accent/10" />
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="glass rounded-2xl px-5 py-4 text-center">
+        <img src={src} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/25 to-transparent" />
+        <div className="absolute bottom-4 left-4 right-4">
+          <div className="glass rounded-2xl px-5 py-4">
             <p className="font-display text-xl text-foreground">{label}</p>
-            <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Placeholder</p>
+            <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Visual</p>
           </div>
         </div>
         <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -333,7 +342,7 @@ function ProjectCaseStudy() {
       <Section index="01" title="Contexto">
         <div className="space-y-6">
           <p className="text-muted-foreground leading-relaxed">{cs.context}</p>
-          <ImagePlaceholder label="Imagen 01" />
+          <CinematicImage label="Imagen 01" src={cs.image01} />
         </div>
       </Section>
 
@@ -369,7 +378,7 @@ function ProjectCaseStudy() {
               </div>
             ))}
           </div>
-          <ImagePlaceholder label="Imagen 02" />
+          <CinematicImage label="Imagen 02" src={cs.image02} />
         </div>
       </Section>
 

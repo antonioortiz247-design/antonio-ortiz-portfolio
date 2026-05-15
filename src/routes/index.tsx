@@ -653,7 +653,7 @@ function Contact() {
             Escríbeme — me encantaría conocer tu proyecto.
           </p>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
+          <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto justify-items-center text-center sm:text-left">
             {contacts.map((c) => (
               <a
                 key={c.label}
@@ -661,12 +661,12 @@ function Contact() {
                 download={c.download ? "" : undefined}
                 target={c.download ? undefined : "_blank"}
                 rel={c.download ? undefined : "noreferrer"}
-                className="group glass rounded-2xl p-5 flex items-center gap-4 hover:border-primary/40 transition-colors"
+                className="group glass rounded-2xl p-5 w-full flex flex-col sm:flex-row items-center gap-4 hover:border-primary/40 transition-colors"
               >
                 <span className="h-10 w-10 rounded-xl bg-primary/10 text-primary grid place-items-center">
                   <c.icon className="h-5 w-5" />
                 </span>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 text-center sm:text-left">
                   <p className="text-[11px] uppercase tracking-widest text-muted-foreground">
                     {c.label}
                   </p>
