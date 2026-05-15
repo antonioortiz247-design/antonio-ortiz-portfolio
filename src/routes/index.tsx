@@ -616,16 +616,16 @@ function Contact() {
           <div className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-accent/20 blur-[120px]" />
 
           <SectionLabel index="06">
-            <span className="mx-auto">Contact</span>
+            <span className="mx-auto">Contacto</span>
           </SectionLabel>
-          <h2 className="mt-6 font-display text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
-            Let's build something
+          <h2 className="mt-6 font-display font-light text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
+            Construyamos algo
             <br />
-            <span className="italic text-primary/90">unforgettable</span>.
+            <span className="text-primary/90">inolvidable</span>.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            Available for branding engagements, creative direction and advisory roles.
-            Reach out — I'd love to hear about the project.
+            Disponible para proyectos de branding, dirección creativa y consultoría.
+            Escríbeme — me encantaría conocer tu proyecto.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
