@@ -405,14 +405,14 @@ function Work() {
 
 /* ---------------- SERVICES ---------------- */
 const services = [
-  { icon: Palette, title: "Branding", desc: "Identity systems, naming, brand architecture and guidelines." },
-  { icon: Megaphone, title: "Digital Marketing", desc: "Performance, paid media and full-funnel growth strategy." },
-  { icon: Share2, title: "Social Media", desc: "Editorial direction, content calendars and community design." },
-  { icon: Camera, title: "Content Creation", desc: "Photography, video, copy and multimedia production." },
-  { icon: Brain, title: "AI Creative Workflows", desc: "Prompt systems, AI-assisted ideation and rapid iteration." },
-  { icon: Sparkles, title: "Visual Design", desc: "Posters, decks, key visuals and art direction." },
-  { icon: LayoutTemplate, title: "Landing Pages", desc: "High-converting, story-driven pages built for performance." },
-  { icon: Target, title: "Advertising Campaigns", desc: "Concepting, scripting and launch — from idea to insight." },
+  { icon: Palette, title: "Branding", desc: "Sistemas de identidad, naming, arquitectura de marca y guidelines." },
+  { icon: Megaphone, title: "Marketing Digital", desc: "Performance, medios pagados y estrategia de full-funnel." },
+  { icon: Share2, title: "Social Media", desc: "Dirección editorial, calendarios de contenido y diseño de comunidad." },
+  { icon: Camera, title: "Creación de Contenido", desc: "Fotografía, video, copy y producción multimedia." },
+  { icon: Brain, title: "Flujos Creativos con IA", desc: "Sistemas de prompts, ideación asistida e iteración rápida." },
+  { icon: Sparkles, title: "Diseño Visual", desc: "Carteles, decks, key visuals y dirección de arte." },
+  { icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta conversión, narrativas y orientadas al performance." },
+  { icon: Target, title: "Campañas Publicitarias", desc: "Conceptualización, guion y lanzamiento — de la idea al insight." },
 ];
 
 function Services() {
