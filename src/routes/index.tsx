@@ -661,8 +661,8 @@ function Footer() {
   return (
     <footer className="relative px-6 py-10 border-t border-border/60">
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <p className="font-mono">© {new Date().getFullYear()} Antonio Ortiz. All rights reserved.</p>
-        <p className="font-mono uppercase tracking-widest">Crafted in CDMX</p>
+        <p className="font-mono">© {new Date().getFullYear()} Antonio Ortiz. Todos los derechos reservados.</p>
+        <p className="font-mono uppercase tracking-widest">Hecho en CDMX</p>
       </div>
     </footer>
   );
