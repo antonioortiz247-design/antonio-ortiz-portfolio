@@ -19,6 +19,8 @@ import projectImcufide from "@/assets/project-imcufide.jpg";
 type CaseStudyImage = {
   src: string;
   fallbackSrc?: string;
+  title: string;
+  subtitle?: string;
 };
 
 type CaseStudy = {
@@ -53,8 +55,18 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Participación en presencia digital, estructura visual y comunicación para ventas: materiales digitales y una presentación más clara para un contexto industrial.",
     heroImage: projectGobree,
-    image01: { src: "/case-studies/gobreebelt-context.jpg", fallbackSrc: gobreebeltContext },
-    image02: { src: "/case-studies/gobreebelt-process.jpg", fallbackSrc: gobreebeltProcess },
+    image01: {
+      src: "/case-studies/gobreebelt-context.jpg",
+      fallbackSrc: gobreebeltContext,
+      title: "Contexto",
+      subtitle: "Comunicación B2B",
+    },
+    image02: {
+      src: "/case-studies/gobreebelt-process.jpg",
+      fallbackSrc: gobreebeltProcess,
+      title: "Proceso",
+      subtitle: "Estructura visual",
+    },
     context:
       "GobreeBelt necesitaba una presencia digital más clara y profesional para comunicar soluciones industriales relacionadas con bandas transportadoras y productos especializados. El reto era organizar información técnica y comercial sin perder claridad, y mantener una estética sólida y confiable para audiencias B2B.",
     objectives: [
@@ -104,8 +116,18 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Materiales visuales y contenido digital para difusión de eventos deportivos y culturales, manteniendo claridad institucional y consistencia en comunicación.",
     heroImage: projectImcufide,
-    image01: { src: "/case-studies/imcufide-context.jpg", fallbackSrc: imcufideContext },
-    image02: { src: "/case-studies/imcufide-process.jpg", fallbackSrc: imcufideProcess },
+    image01: {
+      src: "/case-studies/imcufide-context.jpg",
+      fallbackSrc: imcufideContext,
+      title: "Pruebas clasificatorias olímpicas",
+      subtitle: "Difusión institucional",
+    },
+    image02: {
+      src: "/case-studies/imcufide-process.jpg",
+      fallbackSrc: imcufideProcess,
+      title: "Torneo flag",
+      subtitle: "Materiales y comunicación",
+    },
     context:
       "El proyecto requería difusión visual y comunicación institucional para eventos deportivos y culturales organizados por el Instituto Municipal de Cultura Física y Deporte de Ecatepec. El enfoque fue mantener mensajes claros y consistentes, con piezas que funcionaran en redes y materiales de difusión.",
     objectives: [
@@ -149,10 +171,14 @@ const caseStudies: Record<string, CaseStudy> = {
     image01: {
       src: "/case-studies/creative-concepts-context.jpg",
       fallbackSrc: creativeConceptsContext,
+      title: "Contexto",
+      subtitle: "Exploración visual",
     },
     image02: {
       src: "/case-studies/creative-concepts-process.jpg",
       fallbackSrc: creativeConceptsProcess,
+      title: "Proceso",
+      subtitle: "Iteración creativa",
     },
     context:
       "Serie de exploraciones visuales y proyectos conceptuales enfocados en branding, contenido digital, composición visual y creatividad asistida por IA. La intención es experimentar con estilos, lenguaje gráfico y narrativa visual de forma controlada, sin simular casos comerciales inexistentes.",
@@ -247,7 +273,7 @@ function Section({
   );
 }
 
-function CinematicImage({ label, image }: { label: string; image: CaseStudyImage }) {
+function CinematicImage({ image }: { image: CaseStudyImage }) {
   const [src, setSrc] = useState(image.src);
   const [didFallback, setDidFallback] = useState(false);
 
@@ -273,8 +299,12 @@ function CinematicImage({ label, image }: { label: string; image: CaseStudyImage
         <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/25 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <div className="glass rounded-2xl px-5 py-4">
-            <p className="font-display text-xl text-foreground">{label}</p>
-            <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">Imagen</p>
+            <p className="font-display text-xl text-foreground">{image.title}</p>
+            {image.subtitle && (
+              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                {image.subtitle}
+              </p>
+            )}
           </div>
         </div>
         <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -374,7 +404,7 @@ function ProjectCaseStudy() {
       <Section index="01" title="Contexto">
         <div className="space-y-6">
           <p className="text-muted-foreground leading-relaxed">{cs.context}</p>
-          <CinematicImage label="Pruebas clasificatorias olímpicas" image={cs.image01} />
+          <CinematicImage image={cs.image01} />
         </div>
       </Section>
 
@@ -410,7 +440,7 @@ function ProjectCaseStudy() {
               </div>
             ))}
           </div>
-          <CinematicImage label="Torneo Flag" image={cs.image02} />
+          <CinematicImage image={cs.image02} />
         </div>
       </Section>
 
