@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
 import { Navbar } from "@/components/portfolio/Navbar";
 
@@ -15,13 +16,18 @@ import projectCreative from "@/assets/project-creative.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
 import projectImcufide from "@/assets/project-imcufide.jpg";
 
+type CaseStudyImage = {
+  src: string;
+  fallbackSrc?: string;
+};
+
 type CaseStudy = {
   title: string;
   category: string;
   description: string;
   heroImage: string;
-  image01: string;
-  image02: string;
+  image01: CaseStudyImage;
+  image02: CaseStudyImage;
   context: string;
   objectives: string[];
   participation: {
@@ -47,8 +53,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Participación en presencia digital, estructura visual y comunicación para ventas: materiales digitales y una presentación más clara para un contexto industrial.",
     heroImage: projectGobree,
-    image01: gobreebeltContext,
-    image02: gobreebeltProcess,
+    image01: { src: "/case-studies/gobreebelt-context.jpg", fallbackSrc: gobreebeltContext },
+    image02: { src: "/case-studies/gobreebelt-process.jpg", fallbackSrc: gobreebeltProcess },
     context:
       "GobreeBelt necesitaba una presencia digital más clara y profesional para comunicar soluciones industriales relacionadas con bandas transportadoras y productos especializados. El reto era organizar información técnica y comercial sin perder claridad, y mantener una estética sólida y confiable para audiencias B2B.",
     objectives: [
@@ -98,8 +104,8 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Materiales visuales y contenido digital para difusión de eventos deportivos y culturales, manteniendo claridad institucional y consistencia en comunicación.",
     heroImage: projectImcufide,
-    image01: imcufideContext,
-    image02: imcufideProcess,
+    image01: { src: "/case-studies/imcufide-context.jpg", fallbackSrc: imcufideContext },
+    image02: { src: "/case-studies/imcufide-process.jpg", fallbackSrc: imcufideProcess },
     context:
       "El proyecto requería difusión visual y comunicación institucional para eventos deportivos y culturales organizados por el Instituto Municipal de Cultura Física y Deporte de Ecatepec. El enfoque fue mantener mensajes claros y consistentes, con piezas que funcionaran en redes y materiales de difusión.",
     objectives: [
@@ -140,8 +146,14 @@ const caseStudies: Record<string, CaseStudy> = {
     description:
       "Exploraciones visuales y proyectos conceptuales: branding experimental, composición y piezas digitales, usando IA como herramienta de apoyo creativo.",
     heroImage: projectCreative,
-    image01: creativeConceptsContext,
-    image02: creativeConceptsProcess,
+    image01: {
+      src: "/case-studies/creative-concepts-context.jpg",
+      fallbackSrc: creativeConceptsContext,
+    },
+    image02: {
+      src: "/case-studies/creative-concepts-process.jpg",
+      fallbackSrc: creativeConceptsProcess,
+    },
     context:
       "Serie de exploraciones visuales y proyectos conceptuales enfocados en branding, contenido digital, composición visual y creatividad asistida por IA. La intención es experimentar con estilos, lenguaje gráfico y narrativa visual de forma controlada, sin simular casos comerciales inexistentes.",
     objectives: [
@@ -235,7 +247,10 @@ function Section({
   );
 }
 
-function CinematicImage({ label, src }: { label: string; src: string }) {
+function CinematicImage({ label, image }: { label: string; image: CaseStudyImage }) {
+  const [src, setSrc] = useState(image.src);
+  const [didFallback, setDidFallback] = useState(false);
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -243,7 +258,18 @@ function CinematicImage({ label, src }: { label: string; src: string }) {
       className="glass-strong rounded-3xl overflow-hidden"
     >
       <div className="relative aspect-[16/10]">
-        <img src={src} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-40" />
+        <img
+          src={src}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          onError={() => {
+            if (didFallback) return;
+            if (!image.fallbackSrc) return;
+            setDidFallback(true);
+            setSrc(image.fallbackSrc);
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/25 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <div className="glass rounded-2xl px-5 py-4">
@@ -348,7 +374,7 @@ function ProjectCaseStudy() {
       <Section index="01" title="Contexto">
         <div className="space-y-6">
           <p className="text-muted-foreground leading-relaxed">{cs.context}</p>
-          <CinematicImage label="Imagen 01" src={cs.image01} />
+          <CinematicImage label="Imagen 01" image={cs.image01} />
         </div>
       </Section>
 
@@ -384,7 +410,7 @@ function ProjectCaseStudy() {
               </div>
             ))}
           </div>
-          <CinematicImage label="Imagen 02" src={cs.image02} />
+          <CinematicImage label="Imagen 02" image={cs.image02} />
         </div>
       </Section>
 
