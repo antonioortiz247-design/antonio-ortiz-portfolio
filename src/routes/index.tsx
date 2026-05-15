@@ -30,14 +30,14 @@ import ambientBg from "@/assets/ambient-bg.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Creative Content" },
+      { title: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
       {
         name: "description",
         content:
-          "Portafolio de Antonio Ortiz — construyendo marcas, visuales y experiencias digitales con estrategia, creatividad y flujos asistidos por IA.",
+          "Portafolio de Antonio Ortiz — branding, marketing digital, contenido visual y comunicación creativa. Proyectos digitales, identidad visual y materiales para marcas, negocios y comunicación institucional.",
       },
-      { property: "og:title", content: "Antonio Ortiz — Especialista Creativo en Marketing" },
-      { property: "og:description", content: "Branding, marketing digital y dirección creativa asistida por IA." },
+      { property: "og:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
+      { property: "og:description", content: "Branding, marketing digital, contenido visual y comunicación creativa." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -97,7 +97,7 @@ function Hero() {
           <motion.div initial="hidden" animate="show" variants={fadeUp}>
             <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
-              Disponible para colaboraciones · CDMX
+              Publicista | Marketing Digital | Branding & Contenido Creativo · CDMX
             </div>
           </motion.div>
 
@@ -119,9 +119,8 @@ function Hero() {
             variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.15, ease } } }}
             className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            Publicista · Marketing Digital · Branding & Creative Content. Construyo marcas,
-            visuales y experiencias digitales con estrategia, creatividad y flujos
-            asistidos por IA.
+            Publicista enfocado en branding, marketing digital, contenido visual y comunicación creativa.
+            Desarrollo proyectos digitales, identidad visual y contenido para marcas, negocios y comunicación institucional.
           </motion.p>
 
           <motion.div
@@ -158,9 +157,9 @@ function Hero() {
             className="grid grid-cols-3 gap-6 pt-6 max-w-md"
           >
             {[
-              { k: "5+", v: "Años" },
-              { k: "40+", v: "Proyectos" },
-              { k: "12+", v: "Marcas" },
+              { k: "Branding", v: "Identidad" },
+              { k: "Marketing", v: "Digital" },
+              { k: "Contenido", v: "Visual" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl text-foreground">{s.k}</dt>
@@ -191,7 +190,7 @@ function Hero() {
                 <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                   Actualmente
                 </p>
-                <p className="text-sm">Diseñando sistemas de marca</p>
+                <p className="text-sm">Desarrollando proyectos creativos y digitales</p>
               </div>
               <Sparkles className="h-5 w-5 text-primary" />
             </div>
@@ -221,7 +220,7 @@ function About() {
     "Marketing Digital",
     "Creación de Contenido",
     "Comunicación Visual",
-    "Flujos con IA",
+    "Herramientas creativas con IA",
     "Desarrollo de Campañas",
     "Producción Multimedia",
     "Estrategia de Comunicación",
@@ -238,7 +237,7 @@ function About() {
         >
           <SectionLabel index="01">Sobre mí</SectionLabel>
           <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Estrategia con oficio cinematográfico.
+            Estrategia y comunicación con mirada visual.
           </h2>
         </motion.div>
         <motion.div
@@ -249,16 +248,15 @@ function About() {
           className="lg:col-span-8 space-y-8"
         >
           <p className="text-lg sm:text-xl text-foreground/90 leading-relaxed">
-            Construyo mundos de marca que se sienten inevitables — combinando estrategia
-            rigurosa con una sensibilidad de dirección de arte. Desde identidades
-            industriales hasta campañas institucionales, mi trabajo une el oficio
-            clásico de la comunicación con flujos creativos modernos asistidos por IA
-            que se mueven más rápido sin perder el gusto.
+            Soy publicista enfocado en branding, marketing digital, contenido visual y comunicación creativa.
+            He colaborado con marcas y proyectos institucionales desarrollando identidad visual, materiales
+            para redes sociales, piezas de difusión y contenidos digitales con un enfoque claro y ejecutable.
           </p>
           <p className="text-muted-foreground leading-relaxed max-w-2xl">
-            Trabajo en branding, performance marketing, sistemas de contenido y
-            producción visual — traduciendo posicionamiento en pixeles, copy, motion
-            y los espacios intermedios.
+            Me interesa el proceso completo: entender el objetivo, aterrizar un mensaje y convertirlo en
+            entregables que funcionen (diseño, copy y producción multimedia). Uso herramientas creativas con
+            IA como apoyo para ideación, referencias y variantes, sin que reemplacen el criterio ni el cuidado
+            del detalle.
           </p>
           <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
             {pillars.map((p) => (
@@ -285,8 +283,8 @@ const projects = [
     image: projectGobree,
     href: "https://gobreebelt.com",
     summary:
-      "Sistema de marca industrial, infraestructura comercial y presencia digital B2B para un fabricante de bandas transportadoras de uso pesado.",
-    chips: ["Identidad", "Estrategia B2B", "Sistema Comercial", "Presencia Digital"],
+      "Participación en presencia digital, branding industrial y comunicación visual B2B: desarrollo de materiales digitales, soporte al sistema comercial y contenidos para ventas.",
+    chips: ["Branding Industrial", "Comunicación B2B", "Materiales Digitales", "Soporte Comercial"],
   },
   {
     n: "02",
@@ -295,18 +293,18 @@ const projects = [
     image: projectImcufide,
     href: null,
     summary:
-      "Comunicación pública y promoción de eventos para un instituto municipal de deporte y cultura — campañas, contenido e identidad visual.",
-    chips: ["Sector Público", "Eventos", "Contenido Visual", "Campañas"],
+      "Comunicación institucional y difusión de eventos deportivos y culturales: materiales visuales, contenido digital y campañas de difusión para actividades públicas.",
+    chips: ["Institucional", "Eventos", "Diseño", "Contenido Digital"],
   },
   {
     n: "03",
     title: "Creative Concepts",
-    tag: "Dirección de Arte · IA",
+    tag: "Exploraciones Visuales · IA",
     image: projectCreative,
     href: null,
     summary:
-      "Branding conceptual, carteles, visuales sociales y arte experimental generado con IA — un laboratorio para ideas cinematográficas.",
-    chips: ["Carteles", "Social", "Arte IA", "Experimental"],
+      "Proyectos conceptuales y exploraciones visuales: branding experimental, carteles y piezas para redes, usando IA como apoyo creativo para iterar estilos y composiciones.",
+    chips: ["Conceptual", "Branding", "Visuales", "IA (apoyo)"],
   },
 ];
 
@@ -404,14 +402,14 @@ function Work() {
 
 /* ---------------- SERVICES ---------------- */
 const services = [
-  { icon: Palette, title: "Branding", desc: "Sistemas de identidad, naming, arquitectura de marca y guidelines." },
-  { icon: Megaphone, title: "Marketing Digital", desc: "Performance, medios pagados y estrategia de full-funnel." },
-  { icon: Share2, title: "Social Media", desc: "Dirección editorial, calendarios de contenido y diseño de comunidad." },
-  { icon: Camera, title: "Creación de Contenido", desc: "Fotografía, video, copy y producción multimedia." },
-  { icon: Brain, title: "Flujos Creativos con IA", desc: "Sistemas de prompts, ideación asistida e iteración rápida." },
-  { icon: Sparkles, title: "Diseño Visual", desc: "Carteles, decks, key visuals y dirección de arte." },
-  { icon: LayoutTemplate, title: "Landing Pages", desc: "Páginas de alta conversión, narrativas y orientadas al performance." },
-  { icon: Target, title: "Campañas Publicitarias", desc: "Conceptualización, guion y lanzamiento — de la idea al insight." },
+  { icon: Palette, title: "Branding", desc: "Identidad visual, lineamientos y piezas de marca para uso digital e impreso." },
+  { icon: Megaphone, title: "Marketing Digital", desc: "Estrategia, pauta (Meta/Google) y medición básica orientada a objetivos." },
+  { icon: Share2, title: "Social Media", desc: "Calendarios, diseño de piezas y apoyo editorial para redes sociales." },
+  { icon: Camera, title: "Creación de Contenido", desc: "Contenido visual, foto/video ligero, edición y copy para formatos digitales." },
+  { icon: Brain, title: "IA como herramienta", desc: "Ideación, referencias y variantes rápidas con herramientas creativas con IA." },
+  { icon: Sparkles, title: "Diseño Visual", desc: "Carteles, presentaciones, key visuals y piezas para campañas y contenidos." },
+  { icon: LayoutTemplate, title: "Landing Pages", desc: "Landings claras para portafolio, captación o difusión de proyectos." },
+  { icon: Target, title: "Campañas", desc: "Concepto, mensaje y adaptación a formatos para difusión y redes." },
 ];
 
 function Services() {
@@ -427,7 +425,7 @@ function Services() {
         >
           <SectionLabel index="03">Servicios</SectionLabel>
           <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Ocho disciplinas, una sola voz creativa.
+            Estrategia y ejecución, con intención.
           </h2>
         </motion.div>
 
@@ -486,7 +484,7 @@ function Stack() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            Un toolkit curado entre diseño, IA, performance marketing y post-producción.
+            Un toolkit práctico entre diseño, marketing y producción de contenido, con IA como apoyo.
           </p>
         </motion.div>
 
@@ -521,7 +519,7 @@ const experience = [
   {
     role: "Freelancer · Marketing Digital & Branding",
     period: "2022 — Presente",
-    desc: "Sistemas de marca, campañas y dirección creativa con IA para clientes industriales y de consumo.",
+    desc: "Branding, materiales visuales, contenido para redes y apoyo en campañas digitales para negocios y proyectos (B2B/B2C).",
   },
   {
     role: "IMCUFIDE Ecatepec",
@@ -529,19 +527,19 @@ const experience = [
     desc: "Comunicación institucional, promoción de eventos deportivos y culturales, producción de contenido visual.",
   },
   {
-    role: "Zunzunta.com",
+    role: "Todo Acupuntura - Zunzunta",
     period: "Digital",
-    desc: "Comunicación digital, producción de contenido y diseño editorial.",
+    desc: "Comunicación digital, piezas para redes y web, y diseño editorial para contenidos y materiales informativos.",
   },
   {
     role: "Viajes Mony's",
     period: "Marca & Promoción",
-    desc: "Campañas promocionales, soporte de branding y activaciones en piso.",
+    desc: "Promoción en piso, atención a clientes, materiales de marca y apoyo en activaciones y campañas.",
   },
   {
     role: "Activaciones Publicitarias",
     period: "BTL",
-    desc: "Estrategia de activación, touchpoints experienciales y marketing de eventos.",
+    desc: "Logística básica, ejecución en sitio y apoyo en comunicación visual y materiales para eventos.",
   },
 ];
 
@@ -644,7 +642,7 @@ function Contact() {
             <span className="text-primary/90">inolvidable</span>.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            Disponible para proyectos de branding, dirección creativa y consultoría.
+            Disponible para proyectos de branding, comunicación y contenido digital.
             Escríbeme — me encantaría conocer tu proyecto.
           </p>
 
@@ -698,7 +696,7 @@ function FloatingCTA() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1.6, duration: 0.6, ease }}
       className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-primary text-primary-foreground grid place-items-center glow-amber hover:scale-110 transition-transform"
-      aria-label="Contact"
+      aria-label="Contacto"
     >
       <Mail className="h-5 w-5" />
     </motion.a>

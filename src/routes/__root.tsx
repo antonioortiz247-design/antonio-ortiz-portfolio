@@ -73,16 +73,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0f" },
-      { title: "Antonio Ortiz — Publicista | Marketing Digital | Branding" },
-      { name: "description", content: "Antonio Ortiz's portfolio showcases his expertise in branding, digital marketing, and AI-assisted creative workflows." },
+      { title: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
+      {
+        name: "description",
+        content:
+          "Portafolio de Antonio Ortiz — branding, marketing digital, contenido visual y comunicación creativa. Proyectos digitales, identidad visual y materiales para marcas, negocios y comunicación institucional.",
+      },
       { name: "author", content: "Antonio Ortiz" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Antonio Ortiz" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding" },
-      { name: "twitter:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding" },
-      { property: "og:description", content: "Antonio Ortiz's portfolio showcases his expertise in branding, digital marketing, and AI-assisted creative workflows." },
-      { name: "twitter:description", content: "Antonio Ortiz's portfolio showcases his expertise in branding, digital marketing, and AI-assisted creative workflows." },
+      { property: "og:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
+      { name: "twitter:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
+      { property: "og:description", content: "Branding, marketing digital, contenido visual y comunicación creativa." },
+      { name: "twitter:description", content: "Branding, marketing digital, contenido visual y comunicación creativa." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8d6ed608-a38c-4969-9630-322af4dd061a/id-preview-4f916a0a--70afa254-2710-41cc-b0ce-bd0a11c70d1b.lovable.app-1778809620802.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8d6ed608-a38c-4969-9630-322af4dd061a/id-preview-4f916a0a--70afa254-2710-41cc-b0ce-bd0a11c70d1b.lovable.app-1778809620802.png" },
     ],
@@ -101,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
