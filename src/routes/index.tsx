@@ -635,7 +635,7 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease }}
-          className="relative glass-strong rounded-[2rem] p-10 sm:p-16 text-center grain overflow-hidden"
+          className="relative glass-strong rounded-[2rem] p-7 sm:p-16 text-center grain overflow-hidden"
         >
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-primary/30 blur-[120px]" />
           <div className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-accent/20 blur-[120px]" />
@@ -643,7 +643,7 @@ function Contact() {
           <SectionLabel index="06">
             <span className="mx-auto">Contacto</span>
           </SectionLabel>
-          <h2 className="mt-6 font-display font-light text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
+          <h2 className="mt-6 font-display font-light text-[clamp(2.4rem,7vw,3.75rem)] leading-[0.95] text-gradient-cinematic">
             Construyamos algo
             <br />
             <span className="text-primary/90">inolvidable</span>.

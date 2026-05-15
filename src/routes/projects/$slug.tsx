@@ -293,13 +293,12 @@ function ProjectCaseStudy() {
 
         <div className="mx-auto max-w-5xl">
           <motion.div variants={fadeUp} className="flex items-center justify-between gap-4 flex-wrap">
-            <Link
-              to="/"
-              hash="work"
+            <a
+              href="/#work"
               className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" /> Volver a proyectos
-            </Link>
+            </a>
             <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
               Case Study
@@ -408,17 +407,15 @@ function ProjectCaseStudy() {
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
               Si buscas apoyo en branding, comunicación o contenido digital, me encantará conocer el contexto y proponer una ruta clara.
             </p>
-            <Link
-              to="/"
-              hash="contact"
+            <a
+              href="/#contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
             >
               Ir a contacto <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
     </main>
   );
 }
-
