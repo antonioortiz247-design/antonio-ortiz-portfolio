@@ -374,7 +374,7 @@ function ProjectCaseStudy() {
       <Section index="01" title="Contexto">
         <div className="space-y-6">
           <p className="text-muted-foreground leading-relaxed">{cs.context}</p>
-          <CinematicImage label="Imagen 01" image={cs.image01} />
+          <CinematicImage label="Pruebas clasificatorias olímpicas" image={cs.image01} />
         </div>
       </Section>
 
@@ -410,7 +410,7 @@ function ProjectCaseStudy() {
               </div>
             ))}
           </div>
-          <CinematicImage label="Imagen 02" image={cs.image02} />
+          <CinematicImage label="Torneo Flag" image={cs.image02} />
         </div>
       </Section>
 
