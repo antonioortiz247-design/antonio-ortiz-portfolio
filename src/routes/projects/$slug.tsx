@@ -8,13 +8,13 @@ import { Navbar } from "@/components/portfolio/Navbar";
 import ambientBg from "@/assets/ambient-bg.jpg";
 import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.svg";
 import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.svg";
-import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.svg";
-import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.svg";
+import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.webp";
+import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.webp";
 import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
-import imcufideProcess from "@/assets/case-studies/imcufide-process.jpg";
+import imcufideProcess from "@/assets/case-studies/imcufide-process.webp";
 import projectCreative from "@/assets/project-creative.jpg";
-import projectGobree from "@/assets/project-gobree.jpg";
-import projectImcufide from "@/assets/project-imcufide.jpg";
+import projectGobree from "@/assets/project-gobree.webp";
+import projectImcufide from "@/assets/project-imcufide.webp";
 
 type CaseStudyImage = {
   src: string;
