@@ -58,7 +58,7 @@ export function Navbar() {
             href="#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground/95 text-background px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
           >
-            Let's talk
+            Hablemos
           </a>
           <button
             onClick={() => setOpen(!open)}
