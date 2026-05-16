@@ -9,7 +9,7 @@ import ambientBg from "@/assets/ambient-bg.jpg";
 import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.png";
 import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.spng";
 import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.jpg";
-import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.jpg";
+import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.webp";
 import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
 import imcufideProcess from "@/assets/case-studies/imcufide-process.webp";
 import projectCreative from "@/assets/project-creative.jpg";
