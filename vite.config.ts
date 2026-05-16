@@ -30,6 +30,11 @@ function ensureTanStackPrerenderServerEntry() {
   };
 }
 
+function isBinaryAssetPath(value: string): boolean {
+  const pathWithoutQuery = value.split(/[?#]/)[0] ?? value;
+  return /\.[a-z0-9]+$/i.test(pathWithoutQuery);
+}
+
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
@@ -41,6 +46,7 @@ export default defineConfig({
     prerender: {
       enabled: true,
       crawlLinks: true,
+      filter: (page) => !isBinaryAssetPath(page.path),
     },
   },
 });
