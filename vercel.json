@@ -3,5 +3,14 @@
   "buildCommand": "CI=true npm run build",
   "outputDirectory": "dist/client",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/cv-antonio-ortiz.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"CV-Antonio-Ortiz.pdf\"" }
+      ]
+    }
+  ]
 }

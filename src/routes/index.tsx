@@ -138,6 +138,7 @@ function Hero() {
             </a>
             <a
               href="/cv-antonio-ortiz.pdf"
+              download="CV-Antonio-Ortiz.pdf"
               className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
             >
               <Download className="h-4 w-4" /> Descargar CV
@@ -622,7 +623,7 @@ const contacts = [
     label: "CV",
     value: "Descargar CV",
     href: "/cv-antonio-ortiz.pdf",
-    download: true,
+    download: "CV-Antonio-Ortiz.pdf",
   },
 ];
 
@@ -658,7 +659,7 @@ function Contact() {
               <a
                 key={c.label}
                 href={c.href}
-                download={c.download ? "" : undefined}
+                download={c.download}
                 target={c.download ? undefined : "_blank"}
                 rel={c.download ? undefined : "noreferrer"}
                 className="group glass rounded-2xl p-5 w-full flex flex-col sm:flex-row items-center gap-4 hover:border-primary/40 transition-colors"
