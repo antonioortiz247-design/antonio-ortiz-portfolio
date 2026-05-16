@@ -7,7 +7,7 @@ import { Navbar } from "@/components/portfolio/Navbar";
 
 import ambientBg from "@/assets/ambient-bg.jpg";
 import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.png";
-import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.spng";
+import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.png";
 import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.webp";
 import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.webp";
 import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
