@@ -85,6 +85,7 @@
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
+  html:not(.tss-module) [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

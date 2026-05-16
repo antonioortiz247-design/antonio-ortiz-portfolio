@@ -107,6 +107,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if ('noModule' in HTMLScriptElement.prototype) document.documentElement.classList.add('tss-module')",
+          }}
+        />
         <HeadContent />
       </head>
       <body>
