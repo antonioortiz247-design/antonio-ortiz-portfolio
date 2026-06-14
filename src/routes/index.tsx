@@ -213,7 +213,7 @@ function Hero() {
   return (
     <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-20 sm:px-6 sm:pt-24 lg:px-8">
       <div className="campaign-divider absolute left-0 right-0 top-[6rem]" />
-      <div className="mx-auto grid max-w-[88rem] items-end gap-10 lg:grid-cols-12 lg:items-start">
+      <div className="mx-auto grid max-w-[88rem] items-start gap-10 lg:grid-cols-12">
         <div className="relative lg:col-span-7">
           <div className="rule-grid pointer-events-none absolute inset-x-0 top-0 hidden h-[28rem] opacity-50 lg:block" />
           <motion.div initial="hidden" animate="show" variants={revealUp} className="space-y-6">
