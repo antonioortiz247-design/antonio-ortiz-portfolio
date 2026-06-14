@@ -211,8 +211,7 @@ function Hero() {
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-20 sm:px-6 sm:pt-24 lg:px-8">
-      <div className="campaign-divider absolute left-0 right-0 top-[6rem]" />
+    <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pt-16">
       <div className="mx-auto grid max-w-[88rem] items-start gap-10 lg:grid-cols-12">
         <div className="relative lg:col-span-7">
           <div className="rule-grid pointer-events-none absolute inset-x-0 top-0 hidden h-[28rem] opacity-50 lg:block" />
