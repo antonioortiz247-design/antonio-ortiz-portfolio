@@ -297,7 +297,7 @@ function Hero() {
                 <dd className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.v}</dd>
               </div>
             ))}
-          </motion.div>
+          </motion.dl>
         </div>
 
         <motion.div
