@@ -257,7 +257,7 @@ function Hero() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.3, ease } } }}
+            variants={{ ...revealUp, show: { ...revealUp.show, transition: { duration: 0.9, delay: 0.3, ease } } }}
             className="flex flex-wrap items-center gap-3"
           >
             <a
@@ -284,7 +284,7 @@ function Hero() {
           <motion.dl
             initial="hidden"
             animate="show"
-            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.45, ease } } }}
+            variants={{ ...revealUp, show: { ...revealUp.show, transition: { duration: 0.9, delay: 0.45, ease } } }}
             className="grid grid-cols-3 gap-6 pt-6 max-w-md"
           >
             {[
