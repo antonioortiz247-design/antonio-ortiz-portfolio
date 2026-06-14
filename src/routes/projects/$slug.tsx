@@ -5,15 +5,13 @@ import { type ReactNode, useState } from "react";
 
 import { Navbar } from "@/components/portfolio/Navbar";
 
-import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.svg";
-import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.svg";
-import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.svg";
-import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.svg";
-import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
-import imcufideProcess from "@/assets/case-studies/imcufide-process.jpg";
-import projectCreative from "@/assets/project-creative.jpg";
+import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.png";
+import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.png";
+import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.webp";
+import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.webp";
+import imcufideProcess from "@/assets/case-studies/imcufide-process.webp";
 import projectGobree from "@/assets/project-gobree.jpg";
-import projectImcufide from "@/assets/project-imcufide.jpg";
+import projectImcufide from "@/assets/project-imcufide.webp";
 
 type CaseStudyImage = {
   src: string;
@@ -55,13 +53,13 @@ const caseStudies: Record<string, CaseStudy> = {
       "Participación en presencia digital, estructura visual y comunicación para ventas: materiales digitales y una presentación más clara para un contexto industrial.",
     heroImage: projectGobree,
     image01: {
-      src: "/case-studies/gobreebelt-context.jpg",
+      src: "/case-studies/gobreebelt-context.webp",
       fallbackSrc: gobreebeltContext,
       title: "Contexto",
       subtitle: "Comunicación B2B",
     },
     image02: {
-      src: "/case-studies/gobreebelt-process.jpg",
+      src: "/case-studies/gobreebelt-process.webp",
       fallbackSrc: gobreebeltProcess,
       title: "Proceso",
       subtitle: "Estructura visual",
@@ -116,13 +114,13 @@ const caseStudies: Record<string, CaseStudy> = {
       "Materiales visuales y contenido digital para difusión de eventos deportivos y culturales, manteniendo claridad institucional y consistencia en comunicación.",
     heroImage: projectImcufide,
     image01: {
-      src: "/case-studies/imcufide-context.jpg",
-      fallbackSrc: imcufideContext,
+      src: "/case-studies/project-imcufide.webp",
+      fallbackSrc: projectImcufide,
       title: "Pruebas clasificatorias olímpicas",
       subtitle: "Difusión institucional",
     },
     image02: {
-      src: "/case-studies/imcufide-process.jpg",
+      src: "/case-studies/imcufide-process.webp",
       fallbackSrc: imcufideProcess,
       title: "Torneo flag",
       subtitle: "Materiales y comunicación",
@@ -166,7 +164,7 @@ const caseStudies: Record<string, CaseStudy> = {
     category: "Conceptual Branding / Experimental Visual Work",
     description:
       "Exploraciones visuales y proyectos conceptuales: branding experimental, composición y piezas digitales, usando IA como herramienta de apoyo creativo.",
-    heroImage: projectCreative,
+    heroImage: creativeConceptsContext,
     image01: {
       src: "/case-studies/creative-concepts-context.jpg",
       fallbackSrc: creativeConceptsContext,

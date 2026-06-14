@@ -70,7 +70,6 @@
   html {
     scroll-behavior: smooth;
   }
-
   body {
     min-height: 100vh;
     background-color: var(--color-background);

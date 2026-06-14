@@ -5,10 +5,10 @@ import { ArrowUpRight, Download, Linkedin, Mail, MessageCircle, MoveRight } from
 
 import { Navbar } from "@/components/portfolio/Navbar";
 
+import creativeConceptsContext from "@/assets/creative-concepts-context.png";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
-import projectImcufide from "@/assets/project-imcufide.jpg";
-import projectCreative from "@/assets/project-creative.jpg";
+import projectImcufide from "@/assets/project-imcufide.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,7 +90,7 @@ const projects: Project[] = [
     title: "Creative Concepts",
     category: "Experimental Branding / Visual Exploration",
     role: "Concept development, art direction, AI-supported exploration",
-    image: projectCreative,
+    image: creativeConceptsContext,
     href: null,
     summary:
       "Exploraciones visuales donde branding, textura, tipografía y narrativa se empujan hacia un lenguaje más crudo, memorable y contemporáneo.",
@@ -134,7 +134,7 @@ const storyPanels = [
   {
     title: "Campaign Energy",
     body: "El diseño no se presenta como una tarjeta bonita. Se construye como sistema, campaña, presencia y movimiento.",
-    image: projectCreative,
+    image: creativeConceptsContext,
   },
   {
     title: "Execution Matters",
@@ -257,17 +257,44 @@ function Hero() {
           <motion.div
             initial="hidden"
             animate="show"
-            variants={{ ...revealUp, show: { ...revealUp.show, transition: { duration: 0.9, delay: 0.2, ease } } }}
-            className="mt-12 grid max-w-4xl gap-4 sm:grid-cols-3"
+            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.3, ease } } }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
+            >
+              Ver Proyectos
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href="/cv-antonio-ortiz.pdf"
+              className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
+            >
+              <Download className="h-4 w-4" /> Descargar CV
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Mail className="h-4 w-4" /> Contacto
+            </a>
+          </motion.div>
+
+          <motion.dl
+            initial="hidden"
+            animate="show"
+            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.45, ease } } }}
+            className="grid grid-cols-3 gap-6 pt-6 max-w-md"
           >
             {[
-              { value: "Branding", label: "Positioning systems" },
-              { value: "Campaigns", label: "Message + execution" },
-              { value: "Content", label: "Visual rhythm" },
-            ].map((item) => (
-              <div key={item.value} className="border-t border-white/12 pt-4">
-                <p className="font-display text-[2rem] uppercase leading-none tracking-tight">{item.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.24em] text-muted-foreground">{item.label}</p>
+              { k: "Branding", v: "Identidad" },
+              { k: "Marketing", v: "Digital" },
+              { k: "Contenido", v: "Visual" },
+            ].map((s) => (
+              <div key={s.v}>
+                <dt className="font-display text-3xl text-foreground">{s.k}</dt>
+                <dd className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.v}</dd>
               </div>
             ))}
           </motion.div>
@@ -629,6 +656,35 @@ function Experience() {
   );
 }
 
+/* ---------------- CONTACT ---------------- */
+const contacts = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "antonio-ortiz-ramirez",
+    href: "https://www.linkedin.com/in/antonio-ortiz-ramirez-ba9045153",
+  },
+  {
+    icon: Mail,
+    label: "Correo",
+    value: "Antonioortiz247@gmail.com",
+    href: "mailto:Antonioortiz247@gmail.com",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+52 56 1145 1113",
+    href: "https://wa.me/525611451113",
+  },
+  {
+    icon: Download,
+    label: "CV",
+    value: "Descargar CV",
+    href: "/cv-antonio-ortiz.pdf",
+    download: true,
+  },
+];
+
 function Contact() {
   return (
     <section id="contact" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
@@ -667,9 +723,10 @@ function Contact() {
               <a
                 key={c.label}
                 href={c.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center justify-between gap-4 border-b border-white/10 py-5 transition-colors hover:text-primary"
+                download={c.download ? "" : undefined}
+                target={c.download ? undefined : "_blank"}
+                rel={c.download ? undefined : "noreferrer"}
+                className="group glass rounded-2xl p-5 w-full flex flex-col sm:flex-row items-center gap-4 hover:border-primary/40 transition-colors"
               >
                 <div className="flex items-center gap-4">
                   <span className="grid h-11 w-11 place-items-center border border-white/10 bg-white/[0.03] text-primary">
