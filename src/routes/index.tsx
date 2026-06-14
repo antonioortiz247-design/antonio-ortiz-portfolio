@@ -1,31 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import {
-  ArrowUpRight,
-  Download,
-  Mail,
-  Linkedin,
-  MessageCircle,
-  Sparkles,
-  Palette,
-  Megaphone,
-  Brain,
-  Camera,
-  LayoutTemplate,
-  Target,
-  Share2,
-} from "lucide-react";
+import { ArrowUpRight, Download, Linkedin, Mail, MessageCircle, MoveRight } from "lucide-react";
 
 import { Navbar } from "@/components/portfolio/Navbar";
-import { Particles } from "@/components/portfolio/Particles";
-import { SectionLabel } from "@/components/portfolio/SectionLabel";
 
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
-import projectImcufide from "@/assets/project-imcufide.webp";
+import projectImcufide from "@/assets/project-imcufide.jpg";
 import projectCreative from "@/assets/project-creative.jpg";
-import ambientBg from "@/assets/ambient-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,10 +17,10 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portafolio de Antonio Ortiz — branding, marketing digital, contenido visual y comunicación creativa. Proyectos digitales, identidad visual y materiales para marcas, negocios y comunicación institucional.",
+          "Portafolio de Antonio Ortiz. Branding, marketing, dirección visual y campañas con una estética editorial, urbana e industrial.",
       },
-      { property: "og:title", content: "Antonio Ortiz — Publicista | Marketing Digital | Branding & Contenido Creativo" },
-      { property: "og:description", content: "Branding, marketing digital, contenido visual y comunicación creativa." },
+      { property: "og:title", content: "Antonio Ortiz — Creative Strategy, Branding & Campaign Direction" },
+      { property: "og:description", content: "Branding, marketing digital, contenido visual y campañas con impacto real." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,566 +32,150 @@ export const Route = createFileRoute("/")({
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const fadeUp = {
+const revealUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
 };
 
-function Home() {
-  return (
-    <main id="top" className="relative min-h-screen text-foreground overflow-x-clip">
-      <Navbar />
-      <Hero />
-      <About />
-      <Work />
-      <Services />
-      <Stack />
-      <Experience />
-      <Contact />
-      <Footer />
-      <FloatingCTA />
-    </main>
-  );
-}
+const revealLeft = {
+  hidden: { opacity: 0, x: -36 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.85, ease } },
+};
 
-/* ---------------- HERO ---------------- */
-function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+const revealRight = {
+  hidden: { opacity: 0, x: 36 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.85, ease } },
+};
 
-  return (
-    <section ref={ref} className="relative isolate min-h-[100svh] flex items-center pt-32 pb-20 grain">
-      {/* ambient background image */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 -z-10">
-        <img
-          src={ambientBg}
-          alt=""
-          aria-hidden
-          className="h-full w-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
-      </motion.div>
-      <Particles count={26} />
+type Project = {
+  n: string;
+  slug: string;
+  title: string;
+  category: string;
+  role: string;
+  image: string;
+  summary: string;
+  labels: string[];
+  href: string | null;
+};
 
-      <div className="mx-auto max-w-7xl w-full px-6 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 space-y-8">
-          <motion.div initial="hidden" animate="show" variants={fadeUp}>
-            <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
-              Publicista | Marketing Digital | Branding & Contenido Creativo · CDMX
-            </div>
-          </motion.div>
-
-          <motion.h1
-            initial="hidden"
-            animate="show"
-            variants={fadeUp}
-            className="font-display font-light text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-tight text-gradient-cinematic"
-          >
-            Antonio
-            <br />
-            <span className="text-primary/90">Ortiz</span>
-            <span className="text-muted-foreground">.</span>
-          </motion.h1>
-
-          <motion.p
-            initial="hidden"
-            animate="show"
-            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.15, ease } } }}
-            className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
-          >
-            Publicista enfocado en branding, marketing digital, contenido visual y comunicación creativa.
-            Desarrollo proyectos digitales, identidad visual y contenido para marcas, negocios y comunicación institucional.
-          </motion.p>
-
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.3, ease } } }}
-            className="flex flex-wrap items-center gap-3"
-          >
-            <a
-              href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
-            >
-              Ver Proyectos
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href="/cv-antonio-ortiz.pdf"
-              download="CV-Antonio-Ortiz.pdf"
-              className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
-            >
-              <Download className="h-4 w-4" /> Descargar CV
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Mail className="h-4 w-4" /> Contacto
-            </a>
-          </motion.div>
-
-          <motion.dl
-            initial="hidden"
-            animate="show"
-            variants={{ ...fadeUp, show: { ...fadeUp.show, transition: { duration: 0.9, delay: 0.45, ease } } }}
-            className="grid grid-cols-3 gap-6 pt-6 max-w-md"
-          >
-            {[
-              { k: "Branding", v: "Identidad" },
-              { k: "Marketing", v: "Digital" },
-              { k: "Contenido", v: "Visual" },
-            ].map((s) => (
-              <div key={s.v}>
-                <dt className="font-display text-3xl text-foreground">{s.k}</dt>
-                <dd className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{s.v}</dd>
-              </div>
-            ))}
-          </motion.dl>
-        </div>
-
-        {/* Portrait card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.2, ease, delay: 0.2 }}
-          className="lg:col-span-5 relative"
-        >
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-strong glow-teal">
-            <img
-              src={heroPortrait}
-              alt="Retrato de Antonio Ortiz"
-              width={1024}
-              height={1280}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center justify-between">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Actualmente
-                </p>
-                <p className="text-sm">Desarrollando proyectos creativos y digitales</p>
-              </div>
-              <Sparkles className="h-5 w-5 text-primary" />
-            </div>
-          </div>
-          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl" />
-        </motion.div>
-      </div>
-
-      {/* scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex flex-col items-center gap-2"
-      >
-        Desliza
-        <span className="h-10 w-px bg-gradient-to-b from-primary/60 to-transparent" />
-      </motion.div>
-    </section>
-  );
-}
-
-/* ---------------- ABOUT ---------------- */
-function About() {
-  const pillars = [
-    "Branding",
-    "Marketing Digital",
-    "Creación de Contenido",
-    "Comunicación Visual",
-    "Herramientas creativas con IA",
-    "Desarrollo de Campañas",
-    "Producción Multimedia",
-    "Estrategia de Comunicación",
-  ];
-  return (
-    <section id="about" className="relative py-32 px-6">
-      <div className="mx-auto max-w-7xl grid lg:grid-cols-12 gap-12">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="lg:col-span-4 space-y-6"
-        >
-          <SectionLabel index="01">Sobre mí</SectionLabel>
-          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Estrategia y comunicación con mirada visual.
-          </h2>
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="lg:col-span-8 space-y-8"
-        >
-          <p className="text-lg sm:text-xl text-foreground/90 leading-relaxed">
-            Soy publicista enfocado en branding, marketing digital, contenido visual y comunicación creativa.
-            He colaborado con marcas y proyectos institucionales desarrollando identidad visual, materiales
-            para redes sociales, piezas de difusión y contenidos digitales con un enfoque claro y ejecutable.
-          </p>
-          <p className="text-muted-foreground leading-relaxed max-w-2xl">
-            Me interesa el proceso completo: entender el objetivo, aterrizar un mensaje y convertirlo en
-            entregables que funcionen (diseño, copy y producción multimedia). Uso herramientas creativas con
-            IA como apoyo para ideación, referencias y variantes, sin que reemplacen el criterio ni el cuidado
-            del detalle.
-          </p>
-          <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
-            {pillars.map((p) => (
-              <li
-                key={p}
-                className="glass rounded-xl px-3 py-3 text-xs sm:text-sm text-foreground/80 hover:text-primary hover:border-primary/30 transition-colors"
-              >
-                {p}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- WORK ---------------- */
-const projects = [
+const projects: Project[] = [
   {
     n: "01",
     slug: "gobreebelt",
     title: "GobreeBelt",
-    tag: "Branding Industrial",
+    category: "Industrial Branding / B2B Communication",
+    role: "Brand direction, digital materials, sales support",
     image: projectGobree,
     href: "https://gobreebelt.com",
     summary:
-      "Participación en presencia digital, branding industrial y comunicación visual B2B: desarrollo de materiales digitales, soporte al sistema comercial y contenidos para ventas.",
-    chips: ["Branding Industrial", "Comunicación B2B", "Materiales Digitales", "Soporte Comercial"],
+      "Presencia digital y sistema visual para una marca industrial que necesitaba hablar con claridad comercial, orden técnico y una identidad más sólida.",
+    labels: ["Industrial", "B2B", "Brand System", "Sales Assets"],
   },
   {
     n: "02",
     slug: "imcufide",
     title: "IMCUFIDE Ecatepec",
-    tag: "Comunicación Institucional",
+    category: "Institutional Communication / Sports Culture",
+    role: "Campaign graphics, event diffusion, public communication",
     image: projectImcufide,
     href: null,
     summary:
-      "Comunicación institucional y difusión de eventos deportivos y culturales: materiales visuales, contenido digital y campañas de difusión para actividades públicas.",
-    chips: ["Institucional", "Eventos", "Diseño", "Contenido Digital"],
+      "Contenido visual y difusión institucional para eventos deportivos y culturales con foco en alcance, claridad del mensaje y ritmo editorial.",
+    labels: ["Sports", "Institutional", "Campaign Assets", "Content"],
   },
   {
     n: "03",
     slug: "creative-concepts",
     title: "Creative Concepts",
-    tag: "Exploraciones Visuales · IA",
+    category: "Experimental Branding / Visual Exploration",
+    role: "Concept development, art direction, AI-supported exploration",
     image: projectCreative,
     href: null,
     summary:
-      "Proyectos conceptuales y exploraciones visuales: branding experimental, carteles y piezas para redes, usando IA como apoyo creativo para iterar estilos y composiciones.",
-    chips: ["Conceptual", "Branding", "Visuales", "IA (apoyo)"],
+      "Exploraciones visuales donde branding, textura, tipografía y narrativa se empujan hacia un lenguaje más crudo, memorable y contemporáneo.",
+    labels: ["Conceptual", "Art Direction", "Typography", "Visual Systems"],
   },
 ];
 
-function Work() {
-  return (
-    <section id="work" className="relative py-32 px-6">
-      <div className="mx-auto max-w-7xl space-y-14">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6"
-        >
-          <div className="space-y-4">
-            <SectionLabel index="02">Proyectos Destacados</SectionLabel>
-            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic max-w-xl">
-              Proyectos seleccionados, con intención.
-            </h2>
-          </div>
-          <p className="text-sm text-muted-foreground max-w-xs">
-            Una breve muestra de colaboraciones recientes en los campos industrial, institucional y creativo.
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, ease, delay: i * 0.05 }}
-              className={`group relative glass-strong rounded-3xl overflow-hidden grid lg:grid-cols-12 gap-0 ${
-                i % 2 ? "lg:[&>div:first-child]:order-2" : ""
-              }`}
-            >
-              <div className="lg:col-span-7 relative overflow-hidden">
-                <div className="aspect-[16/10] lg:aspect-auto lg:h-full">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    width={1280}
-                    height={896}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/70 via-background/10 to-transparent" />
-              </div>
-              <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between gap-8">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
-                    <span className="font-mono text-primary">{p.n}</span>
-                    <span>{p.tag}</span>
-                  </div>
-                  <h3 className="font-display text-3xl sm:text-4xl text-foreground">
-                    {p.title}
-                  </h3>
-                  {p.href && (
-                    <a
-                      href={p.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-primary hover:text-foreground transition-colors"
-                    >
-                      gobreebelt.com
-                      <ArrowUpRight className="h-3 w-3" />
-                    </a>
-                  )}
-                  <p className="text-muted-foreground leading-relaxed">{p.summary}</p>
-                  <ul className="flex flex-wrap gap-2 pt-2">
-                    {p.chips.map((c) => (
-                      <li
-                        key={c}
-                        className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full border border-border text-foreground/70"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  to="/projects/$slug"
-                  params={{ slug: p.slug }}
-                  className="inline-flex items-center gap-2 self-start text-sm text-foreground hover:text-primary transition-colors"
-                >
-                  Caso de estudio
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Link>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- SERVICES ---------------- */
-const services = [
-  { icon: Palette, title: "Branding", desc: "Identidad visual, lineamientos y piezas de marca para uso digital e impreso." },
-  { icon: Megaphone, title: "Marketing Digital", desc: "Estrategia, pauta (Meta/Google) y medición básica orientada a objetivos." },
-  { icon: Share2, title: "Social Media", desc: "Calendarios, diseño de piezas y apoyo editorial para redes sociales." },
-  { icon: Camera, title: "Creación de Contenido", desc: "Contenido visual, foto/video ligero, edición y copy para formatos digitales." },
-  { icon: Brain, title: "IA como herramienta", desc: "Ideación, referencias y variantes rápidas con herramientas creativas con IA." },
-  { icon: Sparkles, title: "Diseño Visual", desc: "Carteles, presentaciones, key visuals y piezas para campañas y contenidos." },
-  { icon: LayoutTemplate, title: "Landing Pages", desc: "Landings claras para portafolio, captación o difusión de proyectos." },
-  { icon: Target, title: "Campañas", desc: "Concepto, mensaje y adaptación a formatos para difusión y redes." },
+const capabilityBlocks = [
+  {
+    title: "Brand Systems",
+    description: "Construyo identidades con peso visual, códigos reconocibles y aplicaciones que funcionan dentro y fuera de pantalla.",
+  },
+  {
+    title: "Campaign Thinking",
+    description: "Bajo una idea a piezas, mensajes, ritmos visuales y ejecuciones con dirección clara.",
+  },
+  {
+    title: "Content Direction",
+    description: "Diseño contenido que no rellena feeds: crea presencia, ordena percepción y mueve atención.",
+  },
+  {
+    title: "Digital Execution",
+    description: "Aterrizo piezas, landings, materiales de venta y comunicación digital sin perder intención creativa.",
+  },
+  {
+    title: "Urban Visual Taste",
+    description: "Trabajo con contraste, textura, energía deportiva y referencias de cultura callejera sin caer en clichés.",
+  },
+  {
+    title: "AI With Criteria",
+    description: "Uso IA como herramienta de ritmo e iteración, no como sustituto del criterio ni de la dirección.",
+  },
 ];
 
-function Services() {
-  return (
-    <section id="services" className="relative py-32 px-6">
-      <div className="mx-auto max-w-7xl space-y-14">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="max-w-2xl space-y-4"
-        >
-          <SectionLabel index="03">Servicios</SectionLabel>
-          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Estrategia y ejecución, con intención.
-          </h2>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease, delay: i * 0.04 }}
-              className="group relative glass rounded-2xl p-6 hover:border-primary/30 transition-all hover:-translate-y-1"
-            >
-              <div className="h-10 w-10 rounded-xl glass grid place-items-center mb-5 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                <s.icon className="h-5 w-5" />
-              </div>
-              <h3 className="font-display text-xl mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              <ArrowUpRight className="absolute top-5 right-5 h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-primary transition-all" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- STACK ---------------- */
-const stack = [
-  { name: "Photoshop", group: "Design" },
-  { name: "Illustrator", group: "Design" },
-  { name: "Canva", group: "Design" },
-  { name: "ChatGPT", group: "AI" },
-  { name: "Claude", group: "AI" },
-  { name: "Gemini", group: "AI" },
-  { name: "Meta Ads", group: "Marketing" },
-  { name: "Google Ads", group: "Marketing" },
-  { name: "CapCut", group: "Video" },
+const storyPanels = [
+  {
+    title: "Strategy First",
+    body: "Cada proyecto parte de una posición clara: qué se quiere instalar en la mente, cómo se va a ver y qué debe provocar.",
+    image: heroPortrait,
+  },
+  {
+    title: "Campaign Energy",
+    body: "El diseño no se presenta como una tarjeta bonita. Se construye como sistema, campaña, presencia y movimiento.",
+    image: projectCreative,
+  },
+  {
+    title: "Execution Matters",
+    body: "La idea no termina en la estética. Se convierte en entregables concretos, materiales utilizables y comunicación que sí sale a la calle.",
+    image: projectImcufide,
+  },
 ];
 
-function Stack() {
-  return (
-    <section id="stack" className="relative py-32 px-6">
-      <div className="mx-auto max-w-7xl space-y-14">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6"
-        >
-          <div className="space-y-4 max-w-xl">
-            <SectionLabel index="04">Stack</SectionLabel>
-            <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-              Herramientas, afiladas a diario.
-            </h2>
-          </div>
-          <p className="text-sm text-muted-foreground max-w-xs">
-            Un toolkit práctico entre diseño, marketing y producción de contenido, con IA como apoyo.
-          </p>
-        </motion.div>
-
-        <div className="flex flex-wrap gap-3">
-          {stack.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease, delay: i * 0.04 }}
-              whileHover={{ y: -4 }}
-              className="glass rounded-full pl-2 pr-5 py-2 flex items-center gap-3 hover:border-primary/40 transition-colors"
-            >
-              <span className="h-7 w-7 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 grid place-items-center font-mono text-[10px]">
-                {t.name.slice(0, 2).toUpperCase()}
-              </span>
-              <span className="text-sm">{t.name}</span>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                {t.group}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- EXPERIENCE ---------------- */
 const experience = [
   {
-    role: "Freelancer · Marketing Digital & Branding",
-    period: "2022 — Presente",
-    desc: "Branding, materiales visuales, contenido para redes y apoyo en campañas digitales para negocios y proyectos (B2B/B2C).",
+    role: "Freelance Creative Strategy & Branding",
+    period: "2022 - Present",
+    text: "Branding, contenido digital, piezas comerciales y campañas para negocios, marcas y proyectos con enfoque B2B y B2C.",
   },
   {
-    role: "IMCUFIDE Ecatepec",
-    period: "Sector Público",
-    desc: "Comunicación institucional, promoción de eventos deportivos y culturales, producción de contenido visual.",
+    role: "Institutional Communication / IMCUFIDE",
+    period: "Public Sector",
+    text: "Difusión de actividades deportivas y culturales, materiales de comunicación visual y apoyo editorial para eventos públicos.",
   },
   {
-    role: "Todo Acupuntura - Zunzunta",
-    period: "Digital",
-    desc: "Comunicación digital, piezas para redes y web, y diseño editorial para contenidos y materiales informativos.",
+    role: "Brand Support Across Retail & Promotion",
+    period: "Field Activation",
+    text: "Experiencia en contacto con público, materiales promocionales, activaciones y ejecución operativa de marca.",
   },
   {
-    role: "Viajes Mony's",
-    period: "Marca & Promoción",
-    desc: "Promoción en piso, atención a clientes, materiales de marca y apoyo en activaciones y campañas.",
-  },
-  {
-    role: "Activaciones Publicitarias",
-    period: "BTL",
-    desc: "Logística básica, ejecución en sitio y apoyo en comunicación visual y materiales para eventos.",
+    role: "Visual Production & Content Systems",
+    period: "Ongoing Practice",
+    text: "Diseño, copy, composición y herramientas digitales aplicadas a campañas, contenidos y presencia de marca.",
   },
 ];
 
-function Experience() {
-  return (
-    <section id="experience" className="relative py-32 px-6">
-      <div className="mx-auto max-w-7xl grid lg:grid-cols-12 gap-12">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="lg:col-span-4 space-y-4 lg:sticky lg:top-32 self-start"
-        >
-          <SectionLabel index="05">Experiencia</SectionLabel>
-          <h2 className="font-display font-light text-4xl sm:text-5xl leading-tight text-gradient-cinematic">
-            Un recorrido entre marcas y campañas.
-          </h2>
-          <p className="text-muted-foreground text-sm max-w-sm">
-            Práctica independiente, colaboraciones institucionales y trabajo de marca en piso.
-          </p>
-        </motion.div>
-
-        <ol className="lg:col-span-8 relative border-l border-border pl-8 space-y-10">
-          <span className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-accent/40 to-transparent" />
-          {experience.map((e, i) => (
-            <motion.li
-              key={e.role}
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, ease, delay: i * 0.05 }}
-              className="relative glass rounded-2xl p-6"
-            >
-              <span className="absolute -left-[42px] top-7 h-3 w-3 rounded-full bg-primary glow-amber ring-4 ring-background" />
-              <div className="flex flex-wrap items-baseline justify-between gap-3 mb-2">
-                <h3 className="font-display text-xl">{e.role}</h3>
-                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                  {e.period}
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
-            </motion.li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- CONTACT ---------------- */
-const contacts = [
+const contactLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "antonio-ortiz-ramirez",
+    value: "antonio-ortiz-ramirez-ba9045153",
     href: "https://www.linkedin.com/in/antonio-ortiz-ramirez-ba9045153",
   },
   {
     icon: Mail,
-    label: "Correo",
+    label: "Mail",
     value: "Antonioortiz247@gmail.com",
     href: "mailto:Antonioortiz247@gmail.com",
   },
@@ -618,64 +185,129 @@ const contacts = [
     value: "+52 56 1145 1113",
     href: "https://wa.me/525611451113",
   },
-  {
-    icon: Download,
-    label: "CV",
-    value: "Descargar CV",
-    href: "/cv-antonio-ortiz.pdf",
-    download: "CV-Antonio-Ortiz.pdf",
-  },
 ];
 
-function Contact() {
+function Home() {
   return (
-    <section id="contact" className="relative py-32 px-6">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease }}
-          className="relative glass-strong rounded-[2rem] p-7 sm:p-16 text-center grain overflow-hidden"
-        >
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-primary/30 blur-[120px]" />
-          <div className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-accent/20 blur-[120px]" />
+    <main id="top" className="site-noise relative min-h-screen overflow-x-clip text-foreground">
+      <Navbar />
+      <Hero />
+      <CampaignMarquee />
+      <Positioning />
+      <Work />
+      <Capabilities />
+      <StoryRail />
+      <Experience />
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
 
-          <SectionLabel index="06">
-            <span className="mx-auto">Contacto</span>
-          </SectionLabel>
-          <h2 className="mt-6 font-display font-light text-[clamp(2.4rem,7vw,3.75rem)] leading-[0.95] text-gradient-cinematic">
-            Construyamos algo
-            <br />
-            <span className="text-primary/90">inolvidable</span>.
-          </h2>
-          <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            Disponible para proyectos de branding, comunicación y contenido digital.
-            Escríbeme — me encantaría conocer tu proyecto.
-          </p>
+function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto justify-items-center text-center sm:text-left">
-            {contacts.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                download={c.download}
-                target={c.download ? undefined : "_blank"}
-                rel={c.download ? undefined : "noreferrer"}
-                className="group glass rounded-2xl p-5 w-full flex flex-col sm:flex-row items-center gap-4 hover:border-primary/40 transition-colors"
-              >
-                <span className="h-10 w-10 rounded-xl bg-primary/10 text-primary grid place-items-center">
-                  <c.icon className="h-5 w-5" />
-                </span>
-                <div className="flex-1 min-w-0 text-center sm:text-left">
-                  <p className="text-[11px] uppercase tracking-widest text-muted-foreground">
-                    {c.label}
-                  </p>
-                  <p className="text-sm truncate">{c.value}</p>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+  return (
+    <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <div className="campaign-divider absolute left-0 right-0 top-[7.25rem]" />
+      <div className="mx-auto grid max-w-[88rem] items-end gap-10 lg:grid-cols-12">
+        <div className="relative lg:col-span-7">
+          <div className="rule-grid pointer-events-none absolute inset-x-0 top-0 hidden h-[28rem] opacity-50 lg:block" />
+          <motion.div initial="hidden" animate="show" variants={revealUp} className="space-y-6">
+            <span className="eyebrow">Creative strategist / branding / campaign direction / CDMX</span>
+            <motion.h1 style={{ y: titleY }} className="display-super max-w-[11ch]">
+              raw impact
+              <br />
+              <span className="accent-text">built for</span>
+              <br />
+              brands.
+            </motion.h1>
+            <div className="grid max-w-3xl gap-6 lg:grid-cols-[1.4fr_0.8fr]">
+              <p className="muted-copy text-base leading-7 sm:text-lg">
+                Dise&ntilde;o presencia visual, sistemas de marca y campa&ntilde;as con energ&iacute;a urbana,
+                disciplina comercial y una narrativa m&aacute;s cercana a un editorial de streetwear que a un
+                landing gen&eacute;rico.
+              </p>
+              <div className="border-l border-white/10 pl-5">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                  Positioning
+                </p>
+                <p className="mt-3 text-sm leading-6 text-foreground/88">
+                  Branding, marketing, visual impact y ejecuci&oacute;n real para marcas que necesitan presencia,
+                  no decoraci&oacute;n.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              <a href="#work" className="hard-button hard-button-primary">
+                Selected Work <ArrowUpRight className="h-4 w-4" />
               </a>
+              <a href="/cv-antonio-ortiz.pdf" className="hard-button hard-button-secondary">
+                Download CV <Download className="h-4 w-4" />
+              </a>
+              <a href="#contact" className="hard-button hard-button-secondary">
+                Start a project <Mail className="h-4 w-4" />
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{ ...revealUp, show: { ...revealUp.show, transition: { duration: 0.9, delay: 0.2, ease } } }}
+            className="mt-12 grid max-w-4xl gap-4 sm:grid-cols-3"
+          >
+            {[
+              { value: "Branding", label: "Positioning systems" },
+              { value: "Campaigns", label: "Message + execution" },
+              { value: "Content", label: "Visual rhythm" },
+            ].map((item) => (
+              <div key={item.value} className="border-t border-white/12 pt-4">
+                <p className="font-display text-[2rem] uppercase leading-none tracking-tight">{item.value}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.24em] text-muted-foreground">{item.label}</p>
+              </div>
             ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={revealRight}
+          className="relative lg:col-span-5"
+        >
+          <div className="relative ml-auto max-w-[33rem]">
+            <motion.div style={{ y: imageY }} className="panel-raw tilt-frame relative aspect-[4/5]">
+              <img src={heroPortrait} alt="Retrato de Antonio Ortiz" className="h-full w-full object-cover" />
+              <div className="case-image-overlay absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="border-t border-white/20 pt-4">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white/70">
+                    Antonio Ortiz / Creative Strategy / Branding / Execution
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="panel-raw tilt-frame-alt absolute -bottom-8 -left-4 w-[13rem] bg-black/70 p-4 sm:w-[15rem]">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">Current mode</p>
+              <p className="mt-3 font-display text-3xl uppercase leading-[0.84] tracking-tight">
+                Building
+                <br />
+                stronger
+                <br />
+                brand fronts
+              </p>
+            </div>
+
+            <div className="absolute -right-4 top-10 hidden border border-primary/40 bg-primary/10 px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary sm:block">
+              No templates
+              <br />
+              no startup skin
+            </div>
           </div>
         </motion.div>
       </div>
@@ -683,30 +315,391 @@ function Contact() {
   );
 }
 
-/* ---------------- FOOTER ---------------- */
-function Footer() {
+function CampaignMarquee() {
+  const items = [
+    "Brand Positioning",
+    "Campaign Systems",
+    "Urban Aesthetic",
+    "Sports Energy",
+    "Street-Food Branding",
+    "Visual Impact",
+    "Execution",
+    "Discipline",
+  ];
+
   return (
-    <footer className="relative px-6 py-10 border-t border-border/60">
-      <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <p className="font-mono">© {new Date().getFullYear()} Antonio Ortiz. Todos los derechos reservados.</p>
-        <p className="font-mono uppercase tracking-widest">Hecho en CDMX</p>
+    <section className="marquee">
+      <div className="marquee-track">
+        {[0, 1].map((i) => (
+          <div key={i} className="marquee-segment">
+            {items.map((item) => (
+              <span key={`${i}-${item}`} className="flex items-center gap-6">
+                <span>{item}</span>
+                <span className="marquee-dot" />
+              </span>
+            ))}
+          </div>
+        ))}
       </div>
-    </footer>
+    </section>
   );
 }
 
-/* ---------------- FLOATING CTA ---------------- */
-function FloatingCTA() {
+function Positioning() {
   return (
-    <motion.a
-      href="#contact"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1.6, duration: 0.6, ease }}
-      className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-primary text-primary-foreground grid place-items-center glow-amber hover:scale-110 transition-transform"
-      aria-label="Contacto"
-    >
-      <Mail className="h-5 w-5" />
-    </motion.a>
+    <section id="positioning" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-[88rem] gap-14 lg:grid-cols-12">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={revealLeft}
+          className="lg:col-span-5"
+        >
+          <span className="eyebrow">Positioning</span>
+          <h2 className="display-xl mt-6 max-w-[10ch]">
+            strategy with visual aggression and commercial clarity.
+          </h2>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={revealRight}
+          className="lg:col-span-7"
+        >
+          <div className="grid gap-8 border-l border-white/10 pl-6 md:grid-cols-2">
+            <div>
+              <p className="muted-copy text-base leading-7">
+                Trabajo entre branding, marketing y direcci&oacute;n visual para construir marcas con presencia,
+                orden y memoria. Me interesan los sistemas visuales que se sienten vivos, t&aacute;ctiles y listos
+                para producirse.
+              </p>
+            </div>
+            <div>
+              <p className="muted-copy text-base leading-7">
+                La referencia no es una landing de startup. Es una campa&ntilde;a: energ&iacute;a deportiva, cultura
+                urbana, brutalismo controlado, textura industrial y una ejecuci&oacute;n que convierte ideas en piezas
+                utilizables.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function Work() {
+  return (
+    <section id="work" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[88rem] space-y-12">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={revealUp}
+          className="grid gap-6 lg:grid-cols-12"
+        >
+          <div className="space-y-4 lg:col-span-8">
+            <span className="eyebrow">Selected Work</span>
+            <h2 className="display-xl max-w-[11ch]">Projects presented like campaigns, not like cards.</h2>
+          </div>
+          <p className="muted-copy max-w-md text-sm leading-6 lg:col-span-4 lg:pt-16">
+            Cada caso enfatiza impacto visual, categor&iacute;a, rol y direcci&oacute;n. La lectura entra por la
+            imagen, la jerarqu&iacute;a y el sistema de composici&oacute;n.
+          </p>
+        </motion.div>
+
+        <div className="space-y-16">
+          {projects.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={i % 2 ? revealRight : revealLeft}
+              className={`group grid items-stretch gap-8 border-t border-white/10 pt-8 lg:grid-cols-12 ${
+                i % 2 ? "lg:[&>a:first-child]:order-2" : ""
+              }`}
+            >
+              <Link to="/projects/$slug" params={{ slug: p.slug }} className="block lg:col-span-8">
+                <div className="panel-raw relative h-full min-h-[24rem] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
+                  />
+                  <div className="case-image-overlay" />
+                  <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/68 sm:p-7">
+                    <span>{p.category}</span>
+                    <span className="accent-text">{p.n}</span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
+                    <div className="flex items-end justify-between gap-6 border-t border-white/20 pt-4">
+                      <h3 className="case-title max-w-[8ch]">{p.title}</h3>
+                      <span className="hidden text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/68 sm:block">
+                        Case Study
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <div className="flex flex-col justify-between gap-7 lg:col-span-4 lg:py-2">
+                <div className="space-y-4">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">{p.role}</p>
+                  <p className="muted-copy text-base leading-7">{p.summary}</p>
+                  {p.href && (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-primary"
+                    >
+                      Visit live site <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+                <div className="space-y-5">
+                  <ul className="flex flex-wrap gap-2">
+                    {p.labels.map((label) => (
+                      <li key={label} className="border border-white/12 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/80">
+                        {label}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: p.slug }}
+                    className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary"
+                  >
+                    Open case study <MoveRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Capabilities() {
+  return (
+    <section id="capabilities" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[88rem] space-y-14">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={revealUp}
+          className="grid gap-6 lg:grid-cols-12"
+        >
+          <div className="space-y-4 lg:col-span-7">
+            <span className="eyebrow">Capabilities</span>
+            <h2 className="display-xl max-w-[9ch]">Built for brands that need presence, rhythm and results.</h2>
+          </div>
+          <p className="muted-copy max-w-md text-sm leading-6 lg:col-span-5 lg:pt-16">
+            Los servicios se articulan como un sistema. Estrategia, contenido, branding y ejecuci&oacute;n viven
+            en el mismo frente creativo.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12">
+          {capabilityBlocks.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease, delay: i * 0.04 }}
+              className={`panel-raw p-6 md:p-7 ${
+                i === 0 || i === 3 ? "xl:col-span-5" : i === 2 || i === 5 ? "xl:col-span-3" : "xl:col-span-4"
+              } ${i % 2 ? "xl:translate-y-10" : ""}`}
+            >
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="display-lg mt-6 max-w-[8ch]">{item.title}</h3>
+              <p className="muted-copy mt-4 max-w-md text-sm leading-7">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StoryRail() {
+  return (
+    <section id="story" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[88rem] space-y-10">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={revealUp}
+          className="grid gap-6 lg:grid-cols-12"
+        >
+          <div className="space-y-4 lg:col-span-7">
+            <span className="eyebrow">Visual Storytelling</span>
+            <h2 className="display-xl max-w-[9ch]">A horizontal rhythm with narrative, direction and tension.</h2>
+          </div>
+          <p className="muted-copy max-w-md text-sm leading-6 lg:col-span-5 lg:pt-16">
+            Esta secci&oacute;n rompe la grilla para mostrar c&oacute;mo pienso los proyectos: estrategia, campa&ntilde;a
+            y ejecuci&oacute;n como una secuencia conectada.
+          </p>
+        </motion.div>
+
+        <div className="campaign-scroll -mx-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="flex min-w-max gap-5">
+            {storyPanels.map((panel, i) => (
+            <motion.div
+                key={panel.title}
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+                transition={{ duration: 0.8, ease, delay: i * 0.08 }}
+                className="panel-raw flex min-h-[34rem] w-[85vw] max-w-[34rem] snap-start flex-col justify-between overflow-hidden sm:w-[33rem]"
+            >
+                <div className="relative h-[18rem] overflow-hidden">
+                  <img src={panel.image} alt={panel.title} className="h-full w-full object-cover" />
+                  <div className="case-image-overlay" />
+                </div>
+                <div className="space-y-4 p-6 sm:p-7">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="display-lg max-w-[8ch]">{panel.title}</h3>
+                  <p className="muted-copy max-w-md text-sm leading-7">{panel.body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  return (
+    <section id="experience" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-[88rem] gap-12 lg:grid-cols-12">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={revealLeft}
+          className="space-y-4 lg:col-span-4 lg:sticky lg:top-28 lg:self-start"
+        >
+          <span className="eyebrow">Experience</span>
+          <h2 className="display-xl max-w-[8ch]">Practice shaped by brands, public communication and field execution.</h2>
+          <p className="muted-copy max-w-sm text-sm leading-6">
+            Mi perfil mezcla pensamiento creativo, contacto con la operaci&oacute;n y sensibilidad para construir
+            comunicaci&oacute;n que funcione en contextos reales.
+          </p>
+        </motion.div>
+
+        <ol className="space-y-5 lg:col-span-8">
+          {experience.map((e, i) => (
+            <motion.li
+              key={e.role}
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease, delay: i * 0.05 }}
+              className="panel-raw p-6 md:p-8"
+            >
+              <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+                <div>
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">{e.period}</p>
+                  <h3 className="display-lg mt-5 max-w-[10ch]">{e.role}</h3>
+                </div>
+                <p className="muted-copy max-w-xl text-sm leading-7">{e.text}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="section-cut px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[88rem]">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease }}
+          className="panel-raw grid gap-10 p-6 sm:p-10 lg:grid-cols-12 lg:p-14"
+        >
+          <div className="space-y-5 lg:col-span-7">
+            <span className="eyebrow">Contact</span>
+            <h2 className="display-super max-w-[9ch]">
+              build the next
+              <br />
+              <span className="accent-text">campaign front.</span>
+            </h2>
+            <p className="muted-copy max-w-2xl text-base leading-7 sm:text-lg">
+              Disponible para branding, campa&ntilde;as, direcci&oacute;n visual, contenido digital y ejecuci&oacute;n
+              creativa. Si el objetivo es destacar con una presencia m&aacute;s fuerte, conversemos.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a href="mailto:Antonioortiz247@gmail.com" className="hard-button hard-button-primary">
+                Send email <Mail className="h-4 w-4" />
+              </a>
+              <a href="/cv-antonio-ortiz.pdf" className="hard-button hard-button-secondary">
+                Download CV <Download className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="space-y-3 border-l border-white/10 pl-0 lg:pl-8">
+              {contactLinks.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center justify-between gap-4 border-b border-white/10 py-5 transition-colors hover:text-primary"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="grid h-11 w-11 place-items-center border border-white/10 bg-white/[0.03] text-primary">
+                  <c.icon className="h-5 w-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                      {c.label}
+                    </p>
+                    <p className="mt-2 text-sm text-foreground">{c.value}</p>
+                  </div>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </a>
+            ))}
+          </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} Antonio Ortiz</p>
+        <p>Branding / Campaign Direction / CDMX</p>
+      </div>
+    </footer>
   );
 }

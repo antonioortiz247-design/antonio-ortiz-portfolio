@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const links = [
-  { href: "/#about", label: "Sobre mí" },
+  { href: "/#positioning", label: "Posicion" },
   { href: "/#work", label: "Proyectos" },
-  { href: "/#services", label: "Servicios" },
-  { href: "/#stack", label: "Stack" },
+  { href: "/#capabilities", label: "Servicios" },
+  { href: "/#story", label: "Proceso" },
   { href: "/#experience", label: "Experiencia" },
   { href: "/#contact", label: "Contacto" },
 ];
@@ -30,24 +30,24 @@ export function Navbar() {
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
         <nav
-          className={`glass rounded-full flex items-center justify-between px-5 py-2.5 transition-all duration-500 ${
-            scrolled ? "shadow-[0_8px_40px_-10px_rgba(0,0,0,0.6)]" : ""
+          className={`flex items-center justify-between border border-white/10 bg-black/45 px-4 py-3 backdrop-blur-md transition-all duration-500 ${
+            scrolled ? "shadow-[0_18px_50px_rgba(0,0,0,0.35)]" : ""
           }`}
         >
-          <a href="/#top" className="flex items-center gap-2 group">
-            <span className="h-2 w-2 rounded-full bg-primary glow-amber group-hover:scale-125 transition-transform" />
-            <span className="font-display text-lg tracking-tight text-foreground">
+          <a href="/#top" className="group flex items-center gap-3">
+            <span className="stamp !px-2.5 !py-1.5 text-[10px]">AO</span>
+            <span className="font-display text-2xl uppercase tracking-tight text-foreground">
               Antonio Ortiz
             </span>
           </a>
-          <ul className="hidden md:flex items-center gap-7 text-sm">
+          <ul className="hidden md:flex items-center gap-6 text-[11px] font-semibold uppercase tracking-[0.24em]">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {l.label}
                 </a>
@@ -56,14 +56,14 @@ export function Navbar() {
           </ul>
           <a
             href="/#contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-foreground/95 text-background px-4 py-2 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+            className="hard-button hard-button-primary hidden md:inline-flex"
           >
             Hablemos
           </a>
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
-            className="md:hidden h-9 w-9 grid place-items-center rounded-full glass"
+            className="grid h-10 w-10 place-items-center border border-white/10 bg-white/[0.03] md:hidden"
           >
             <span className="sr-only">Menu</span>
             <div className="space-y-1.5">
@@ -77,18 +77,21 @@ export function Navbar() {
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-2 glass-strong rounded-2xl p-4 space-y-1"
+            className="mt-2 space-y-1 border border-white/10 bg-black/80 p-4 backdrop-blur-md md:hidden"
           >
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5"
+                className="block border-b border-white/8 px-1 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>
             ))}
+            <a href="/#contact" onClick={() => setOpen(false)} className="hard-button hard-button-primary mt-3 w-full justify-center">
+              Hablemos
+            </a>
           </motion.div>
         )}
       </div>

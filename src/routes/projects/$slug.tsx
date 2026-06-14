@@ -1,20 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 import { Navbar } from "@/components/portfolio/Navbar";
 
-import ambientBg from "@/assets/ambient-bg.jpg";
-import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.png";
-import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.png";
-import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.webp";
-import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.webp";
+import creativeConceptsContext from "@/assets/case-studies/creative-concepts-context.svg";
+import creativeConceptsProcess from "@/assets/case-studies/creative-concepts-process.svg";
+import gobreebeltContext from "@/assets/case-studies/gobreebelt-context.svg";
+import gobreebeltProcess from "@/assets/case-studies/gobreebelt-process.svg";
 import imcufideContext from "@/assets/case-studies/imcufide-context.jpg";
-import imcufideProcess from "@/assets/case-studies/imcufide-process.webp";
+import imcufideProcess from "@/assets/case-studies/imcufide-process.jpg";
 import projectCreative from "@/assets/project-creative.jpg";
 import projectGobree from "@/assets/project-gobree.jpg";
-import projectImcufide from "@/assets/project-imcufide.webp";
+import projectImcufide from "@/assets/project-imcufide.jpg";
 
 type CaseStudyImage = {
   src: string;
@@ -242,21 +241,21 @@ function Section({
 }: {
   index: string;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
-    <section className="relative py-14 px-6">
-      <div className="mx-auto max-w-5xl grid lg:grid-cols-12 gap-10">
+    <section className="section-cut px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-[88rem] gap-8 lg:grid-cols-12">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
-          className="lg:col-span-4 space-y-4"
+          className="lg:col-span-4"
         >
-          <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
-            <span className="font-mono text-primary">{index}</span>
-            <span className="uppercase tracking-widest">{title}</span>
+          <div className="space-y-4 lg:sticky lg:top-28">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">{index}</p>
+            <h2 className="display-lg max-w-[8ch]">{title}</h2>
           </div>
         </motion.div>
         <motion.div
@@ -281,14 +280,13 @@ function CinematicImage({ image }: { image: CaseStudyImage }) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.4, ease }}
-      className="glass-strong rounded-3xl overflow-hidden"
+      className="panel-raw overflow-hidden"
     >
       <div className="relative aspect-[16/10]">
         <img
           src={src}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          alt={image.title}
+          className="absolute inset-0 h-full w-full object-cover"
           onError={() => {
             if (didFallback) return;
             if (!image.fallbackSrc) return;
@@ -296,20 +294,16 @@ function CinematicImage({ image }: { image: CaseStudyImage }) {
             setSrc(image.fallbackSrc);
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/25 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="glass rounded-2xl px-5 py-4">
-            <p className="font-display text-xl text-foreground">{image.title}</p>
+        <div className="case-image-overlay" />
+        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+          <div className="border-t border-white/20 pt-4">
+            <p className="font-display text-3xl uppercase tracking-tight text-foreground">{image.title}</p>
             {image.subtitle && (
-              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/70">
                 {image.subtitle}
               </p>
             )}
           </div>
-        </div>
-        <div className="absolute inset-0 opacity-30 pointer-events-none">
-          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/20 blur-[80px]" />
-          <div className="absolute -bottom-28 -right-28 h-72 w-72 rounded-full bg-accent/20 blur-[90px]" />
         </div>
       </div>
     </motion.div>
@@ -322,26 +316,21 @@ function ProjectCaseStudy() {
 
   if (!cs) {
     return (
-      <main className="relative min-h-screen text-foreground overflow-x-clip">
+      <main className="site-noise relative min-h-screen overflow-x-clip text-foreground">
         <Navbar />
-        <section className="relative isolate min-h-[100svh] flex items-center pt-32 pb-20 grain px-6">
-          <div className="absolute inset-0 -z-10">
-            <img src={ambientBg} alt="" aria-hidden className="h-full w-full object-cover opacity-35" />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background" />
-          </div>
-          <div className="mx-auto max-w-3xl w-full text-center space-y-6">
-            <h1 className="font-display font-light text-5xl sm:text-6xl leading-[0.95] text-gradient-cinematic">
+        <section className="px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[88rem]">
+            <div className="panel-raw mx-auto max-w-4xl p-8 text-center sm:p-14">
+              <h1 className="display-xl">
               Case Study no encontrado
-            </h1>
-            <p className="text-muted-foreground">
+              </h1>
+              <p className="muted-copy mt-6">
               Este proyecto no existe o el enlace cambió. Puedes volver a la página principal.
-            </p>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
-            >
-              Volver al portafolio <ArrowUpRight className="h-4 w-4" />
-            </Link>
+              </p>
+              <Link to="/" className="hard-button hard-button-primary mt-8 inline-flex">
+                Volver al portafolio <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
@@ -349,70 +338,79 @@ function ProjectCaseStudy() {
   }
 
   return (
-    <main className="relative min-h-screen text-foreground overflow-x-clip">
+    <main className="site-noise relative min-h-screen overflow-x-clip text-foreground">
       <Navbar />
       <motion.section
         initial="hidden"
         animate="show"
         variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.8, ease } } }}
-        className="relative isolate pt-32 pb-20 grain px-6"
+        className="px-4 pb-16 pt-32 sm:px-6 lg:px-8"
       >
-        <div className="absolute inset-0 -z-10">
-          <img src={cs.heroImage} alt="" aria-hidden className="h-full w-full object-cover opacity-35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/75 to-background" />
-        </div>
-
-        <div className="mx-auto max-w-5xl">
-          <motion.div variants={fadeUp} className="flex items-center justify-between gap-4 flex-wrap">
+        <div className="mx-auto max-w-[88rem]">
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-between gap-4">
             <a
               href="/#work"
-              className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
+              className="hard-button hard-button-secondary"
             >
               <ArrowLeft className="h-4 w-4" /> Volver a proyectos
             </a>
-            <div className="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary glow-amber animate-pulse" />
-              Case Study
-            </div>
+            <span className="stamp">Case Study</span>
           </motion.div>
 
-          <div className="mt-10 grid lg:grid-cols-12 gap-10 items-end">
-            <motion.div variants={fadeUp} className="lg:col-span-8 space-y-5">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">{cs.category}</p>
-              <h1 className="font-display font-light text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.95] tracking-tight text-gradient-cinematic">
+          <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
+            <motion.div variants={fadeUp} className="space-y-5 lg:col-span-8">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-primary">{cs.category}</p>
+              <h1 className="display-super max-w-[8ch]">
                 {cs.title}
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="muted-copy max-w-2xl text-base leading-7 sm:text-lg">
                 {cs.description}
               </p>
             </motion.div>
 
             <motion.div variants={fadeUp} className="lg:col-span-4">
-              <div className="glass-strong rounded-3xl p-6 space-y-4">
-                <p className="text-[11px] uppercase tracking-widest text-muted-foreground">Rol</p>
-                <p className="text-sm text-foreground/90">
+              <div className="panel-raw p-6">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">Rol</p>
+                <p className="mt-3 text-sm leading-7 text-foreground/90">
                   Antonio Ortiz · Publicista | Marketing Digital | Branding & Contenido Creativo
                 </p>
-                <p className="text-[11px] uppercase tracking-widest text-muted-foreground">Enfoque</p>
-                <p className="text-sm text-foreground/90">Comunicación, diseño visual y contenido.</p>
+                <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">Enfoque</p>
+                <p className="mt-3 text-sm leading-7 text-foreground/90">
+                  Comunicaci&oacute;n, dise&ntilde;o visual, estrategia y ejecuci&oacute;n de piezas.
+                </p>
               </div>
             </motion.div>
           </div>
+
+          <motion.div variants={fadeUp} className="panel-raw mt-10 overflow-hidden">
+            <div className="relative aspect-[16/8] min-h-[20rem]">
+              <img src={cs.heroImage} alt={cs.title} className="h-full w-full object-cover" />
+              <div className="case-image-overlay" />
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                <div className="flex flex-wrap items-end justify-between gap-5 border-t border-white/20 pt-4">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/72">
+                    Context / direction / execution
+                  </p>
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-primary">Antonio Ortiz</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
       <Section index="01" title="Contexto">
-        <div className="space-y-6">
-          <p className="text-muted-foreground leading-relaxed">{cs.context}</p>
+        <div className="space-y-8">
+          <p className="muted-copy max-w-3xl text-base leading-7">{cs.context}</p>
           <CinematicImage image={cs.image01} />
         </div>
       </Section>
 
       <Section index="02" title="Objetivos">
-        <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {cs.objectives.map((o) => (
-            <div key={o} className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
-              <p className="text-sm text-foreground/90">{o}</p>
+            <div key={o} className="panel-raw p-5">
+              <p className="text-sm leading-7 text-foreground/92">{o}</p>
             </div>
           ))}
         </div>
@@ -420,10 +418,10 @@ function ProjectCaseStudy() {
 
       <Section index="03" title="Participación">
         <div className="space-y-6">
-          <p className="text-muted-foreground leading-relaxed">{cs.participation.summary}</p>
-          <ul className="space-y-2">
+          <p className="muted-copy max-w-3xl text-base leading-7">{cs.participation.summary}</p>
+          <ul className="grid gap-3">
             {cs.participation.bullets.map((b) => (
-              <li key={b} className="glass rounded-xl px-4 py-3 text-sm text-foreground/85">
+              <li key={b} className="panel-raw px-5 py-4 text-sm leading-7 text-foreground/88">
                 {b}
               </li>
             ))}
@@ -433,10 +431,10 @@ function ProjectCaseStudy() {
 
       <Section index="04" title="Proceso Creativo">
         <div className="space-y-6">
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {cs.process.map((p) => (
-              <div key={p} className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                <p className="text-sm text-foreground/90">{p}</p>
+              <div key={p} className="panel-raw p-5">
+                <p className="text-sm leading-7 text-foreground/92">{p}</p>
               </div>
             ))}
           </div>
@@ -449,7 +447,7 @@ function ProjectCaseStudy() {
           {cs.tools.map((t) => (
             <span
               key={t}
-              className="inline-flex items-center rounded-full border border-border px-3 py-2 text-xs uppercase tracking-widest text-foreground/75 glass"
+              className="inline-flex items-center border border-white/12 bg-white/[0.02] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-foreground/78"
             >
               {t}
             </span>
@@ -458,30 +456,25 @@ function ProjectCaseStudy() {
       </Section>
 
       <Section index="06" title="Resultados">
-        <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {cs.results.map((r) => (
-            <div key={r} className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
-              <p className="text-sm text-foreground/90">{r}</p>
+            <div key={r} className="panel-raw p-5">
+              <p className="text-sm leading-7 text-foreground/92">{r}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <section className="relative py-20 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="glass-strong rounded-[2rem] p-10 sm:p-14 text-center grain overflow-hidden relative">
-            <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-primary/20 blur-[120px]" />
-            <div className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-accent/20 blur-[120px]" />
-            <h2 className="font-display font-light text-4xl sm:text-5xl leading-[0.95] text-gradient-cinematic">
+      <section className="section-cut px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[88rem]">
+          <div className="panel-raw p-8 text-center sm:p-12">
+            <h2 className="display-xl">
               ¿Platicamos tu proyecto?
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+            <p className="muted-copy mx-auto mt-5 max-w-xl text-base leading-7">
               Si buscas apoyo en branding, comunicación o contenido digital, me encantará conocer el contexto y proponer una ruta clara.
             </p>
-            <a
-              href="/#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
-            >
+            <a href="/#contact" className="hard-button hard-button-primary mt-8 inline-flex">
               Ir a contacto <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
