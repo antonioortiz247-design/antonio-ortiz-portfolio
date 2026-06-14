@@ -62,9 +62,6 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
     return response;
   }
 
-  // #region debug-point A:ssr-json-500
-  (() => { import("node:fs").then((fs) => { let u = "http://127.0.0.1:7777/event"; let s = "vercel-runtime-error"; try { const e = fs.readFileSync(".dbg/vercel-runtime-error.env", "utf8"); u = e.match(/DEBUG_SERVER_URL=(.+)/)?.[1] || u; s = e.match(/DEBUG_SESSION_ID=(.+)/)?.[1] || s; } catch {} fetch(u, { method: "POST", body: JSON.stringify({ sessionId: s, runId: "pre-fix", hypothesisId: "A", location: "src/server.ts:65", msg: "[DEBUG] catastrophic SSR response normalized", data: { status: response.status, contentType, body }, ts: Date.now() }) }).catch(() => {}); }).catch(() => {}); })();
-  // #endregion
   console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
   return brandedErrorResponse();
 }
@@ -72,16 +69,10 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      // #region debug-point B:ssr-request-start
-      (() => { import("node:fs").then((fs) => { let u = "http://127.0.0.1:7777/event"; let s = "vercel-runtime-error"; try { const e = fs.readFileSync(".dbg/vercel-runtime-error.env", "utf8"); u = e.match(/DEBUG_SERVER_URL=(.+)/)?.[1] || u; s = e.match(/DEBUG_SESSION_ID=(.+)/)?.[1] || s; } catch {} fetch(u, { method: "POST", body: JSON.stringify({ sessionId: s, runId: "pre-fix", hypothesisId: "B", location: "src/server.ts:74", msg: "[DEBUG] SSR request start", data: { url: request.url, method: request.method }, ts: Date.now() }) }).catch(() => {}); }).catch(() => {}); })();
-      // #endregion
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
-      // #region debug-point C:ssr-catch
-      (() => { import("node:fs").then((fs) => { let u = "http://127.0.0.1:7777/event"; let s = "vercel-runtime-error"; try { const e = fs.readFileSync(".dbg/vercel-runtime-error.env", "utf8"); u = e.match(/DEBUG_SERVER_URL=(.+)/)?.[1] || u; s = e.match(/DEBUG_SESSION_ID=(.+)/)?.[1] || s; } catch {} fetch(u, { method: "POST", body: JSON.stringify({ sessionId: s, runId: "pre-fix", hypothesisId: "C", location: "src/server.ts:80", msg: "[DEBUG] SSR fetch threw", data: { url: request.url, method: request.method, error: error instanceof Error ? { name: error.name, message: error.message, stack: error.stack } : String(error) }, ts: Date.now() }) }).catch(() => {}); }).catch(() => {}); })();
-      // #endregion
       console.error(error);
       return brandedErrorResponse();
     }

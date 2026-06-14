@@ -211,7 +211,7 @@ function Hero() {
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+    <section ref={ref} className="relative min-h-[100svh] px-4 pb-14 pt-24 sm:px-6 sm:pt-28 lg:px-8">
       <div className="campaign-divider absolute left-0 right-0 top-[7.25rem]" />
       <div className="mx-auto grid max-w-[88rem] items-end gap-10 lg:grid-cols-12">
         <div className="relative lg:col-span-7">
@@ -252,33 +252,6 @@ function Hero() {
                 Start a project <Mail className="h-4 w-4" />
               </a>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{ ...revealUp, show: { ...revealUp.show, transition: { duration: 0.9, delay: 0.3, ease } } }}
-            className="flex flex-wrap items-center gap-3"
-          >
-            <a
-              href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium glow-amber hover:scale-[1.02] transition-transform"
-            >
-              Ver Proyectos
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href="/cv-antonio-ortiz.pdf"
-              className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:bg-white/5 transition-colors"
-            >
-              <Download className="h-4 w-4" /> Descargar CV
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Mail className="h-4 w-4" /> Contacto
-            </a>
           </motion.div>
 
           <motion.dl
